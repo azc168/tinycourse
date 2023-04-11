@@ -2,21 +2,30 @@ import React from "react";
 import "./createpost.css";
 
 export default function CreatePost() {
-
   function setRating(rating) {
-    const stars = document.querySelectorAll('.star');
+    const stars = document.querySelectorAll(".star");
     stars.forEach((star, index) => {
       if (index < rating) {
-        star.classList.add('selected');
+        star.classList.add("selected");
       } else {
-        star.classList.remove('selected');
+        star.classList.remove("selected");
+      }
+    });
+  }
+  function rateProduct(rating) {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square, index) => {
+      if (index < rating) {
+        square.classList.add('selected');
+      } else {
+        square.classList.remove('selected');
       }
     });
   }
   return (
     <div className="createReviewPage">
       <div className="reviewContainer">
-        <h1> Create a Review</h1>
+        <h2> Create a Review</h2>
       </div>
       <div className="top-container">
         <div className="department">
@@ -74,7 +83,42 @@ export default function CreatePost() {
             </span>
           </div>
         </div>
+        <div class="workload">
+          <label> Workload: </label>
+          <ul class="squares">
+            <li class="workload-item">
+              <div class="square" onClick={()=>rateProduct(1)}></div>
+            </li>
+            <li class="workload-item">
+              <div class="square" onClick={()=>rateProduct(2)}></div>
+            </li>
+            <li class="workload-item">
+              <div class="square" onClick={()=>rateProduct(3)}></div>
+            </li>
+            <li class="workload-item">
+              <div class="square" onClick={()=>rateProduct(4)}></div>
+            </li>
+            <li class="workload-item">
+              <div class="square" onClick={()=>rateProduct(5)}></div>
+            </li>
+          </ul>
+        </div>
       </div>
+      <div className="description-container">
+        <label>Description:</label>
+        <br></br>
+        <br></br>
+        <textarea placeholder="What did you enjoy? Which parts of the class were you not expecting? Was the material interesting? How difficult are the exams? How is the instructor’s grading? Was the class timing difficult? (3 hour lecture, super early or late class, etc.)"></textarea>
+      </div>
+      <div className="bottom-container">
+        <label>Display my name on this review: </label>
+        <select id="attendance-dropdown">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <button>Submit</button>
+      <button>Save</button>
     </div>
   );
 }
