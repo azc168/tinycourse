@@ -38,7 +38,7 @@ textarea {
     padding: 20px 20px;
     margin-bottom: 20px;
 }
-button {
+#submit,#save {
     padding: 10px;
     margin-right: 25px;
     background-color: #7BAFD4;
