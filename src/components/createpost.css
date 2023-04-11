@@ -1,3 +1,52 @@
+.reviewContainer {
+    text-align: center;
+    color: #7BAFD4;
+}
+.top-container {
+    border: 2px solid #7BAFD4;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+}  
+
+.top-container > div {
+    margin: 10px;
+}
+
+.createReviewPage {
+    max-width: 1000px;
+    margin: 0 auto;
+}  
+
+.description-container {
+    border: 2px solid #7BAFD4;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+}
+
+.description-container > div {
+    margin: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 90px;
+    border: white;
+}
+
+.bottom-container {
+    border: 2px solid #7BAFD4;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+}
+button {
+    padding: 10px;
+    margin-right: 25px;
+    background-color: #7BAFD4;
+    color: white;
+    border: #7BAFD4;
+    font-size: 18px;
+}
+/*star formatting below*/
 .stars {
     unicode-bidi: bidi-override;
     direction: rtl;
@@ -23,3 +72,31 @@
     color: gray;
   }
   
+  /*square formatting below*/
+  .workload {
+    display: inline-block;
+  }
+  
+  .squares {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .workload-item {
+    display: inline-block;
+  }
+  
+  .square {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .square:hover, .square.selected {
+    background-color: #f7d23c;
+  }
