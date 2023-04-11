@@ -1,29 +1,30 @@
-import './App.css';
-import Homepage from './components/Homepage';
-import CreatePost from './components/CreatePost';
-import Login from './components/Login';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import {signOut} from 'firebase/auth';
-import { auth } from './firebase-config';
+import "./App.css";
+import Homepage from "./components/Homepage";
+import CreatePost from "./components/CreatePost";
+import Login from "./components/Login";
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase-config";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [isHome, setIsHome] = useState(true);
 
   const button = {
-      background: "none!important",
-      border: "none",
-      padding: "0!important",
-      /*optional*/
-      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-      fontSize: "16px",
-      color: "#FFFFFF",
-      textDecoration: "none",
-      cursor: "pointer",
-      backgroundColor: "#7BAFD4",
+    background: "none!important",
+    border: "none",
+    padding: "0!important",
+    /*optional*/
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+    fontSize: "16px",
+    color: "#FFFFFF",
+    textDecoration: "none",
+    cursor: "pointer",
+    backgroundColor: "#7BAFD4",
   };
-  
+
   const linkStyle = {
     color: "#FFFFFF",
     textDecoration: "none",
@@ -52,36 +53,72 @@ function App() {
 
   const signUserOut = () => {
     signOut(auth).then(() => {
-      localStorage.clear()
-      setIsAuth(false)
+      localStorage.clear();
+      setIsAuth(false);
       window.location.pathname = "/login";
-    })
-  }
+    });
+  };
 
   return (
     <Router>
       <div className="outer" style={outer}>
-        <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <nav
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <div className="linkBackground" style={linkBackground}>
-            {!isHome ? <Link to="/" style={linkStyle}> Back to Home</Link> : <Link to="/createpost" style={linkStyle}> Review a Class </Link>}
-          </div> 
-          <div className='tinyCourse'>
-            <Link to="/" style={tinyCourseLink}> tinyCourse </Link>
+            {!isHome ? (
+              <Link to="/" style={linkStyle}>
+                {" "}
+                Back to Home
+              </Link>
+            ) : (
+              <Link to="/createpost" style={linkStyle}>
+                {" "}
+                Review a Class{" "}
+              </Link>
+            )}
+          </div>
+          <div className="tinyCourse">
+            <Link to="/" style={tinyCourseLink}>
+              {" "}
+              tinyCourse{" "}
+            </Link>
           </div>
           <div className="linkBackground" style={linkBackground}>
-            {!isAuth ?  <Link to="/login" style={linkStyle}> Log In </Link> : <button onClick={signUserOut} style={button}> Log Out</button>}
+            {!isAuth ? (
+              <Link to="/login" style={linkStyle}>
+                {" "}
+                Log In{" "}
+              </Link>
+            ) : (
+              <button onClick={signUserOut} style={button}>
+                {" "}
+                Log Out
+              </button>
+            )}
           </div>
-          
         </nav>
       </div>
       <Routes>
-        <Route path="/" element={<Homepage setIsHome={setIsHome}/>} />
-        <Route path="/createpost" element={<CreatePost setIsHome = {setIsHome}/>} />
-        <Route path="/login" element={<Login setIsAuth={setIsAuth}/>} />
+        <Route path="/" element={<Homepage setIsHome={setIsHome} />} />
+        <Route
+          path="/createpost"
+          element={
+            isAuth ? (
+              <CreatePost setIsHome={setIsHome} isAuth={isAuth}/>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+        <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
