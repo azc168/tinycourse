@@ -10,6 +10,7 @@ import { auth } from './firebase-config';
 function App() {
   const [isAuth, setIsAuth] = useState(false);
 
+  const [isHome, setIsHome] = useState(true);
 
   const signUserOut = () => {
     signOut(auth).then(() => {
@@ -21,15 +22,15 @@ function App() {
   return (
     <Router>
       <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <Link to="/createpost"> Review a Class </Link>
+        {!isHome ? <Link to="/"> Go Home</Link> : <Link to="/createpost"> Review a Class </Link>}
         <div className='logo'>
           <h1>tinyCourse</h1>
         </div>
         {!isAuth ?  <Link to="/login"> Login </Link> : <button onClick={signUserOut}> Log Out</button>}
       </nav>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/createpost" element={<CreatePost />} />
+        <Route path="/" element={<Homepage setIsHome={setIsHome}/>} />
+        <Route path="/createpost" element={<CreatePost setIsHome = {setIsHome}/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth}/>} />
       </Routes>
     </Router>
