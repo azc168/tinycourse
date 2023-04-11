@@ -16,7 +16,7 @@ import {useNavigate} from "react-router-dom";
 
     return (
         <div className = "loginPage">
-            <p>Sign In with Google to Continue</p>
+            <p>Please Sign In with Google to Continue</p>
             <button className="login-with-google-btn" onClick={signInWithGoogle}>Sign in with Google</button> 
         </div>
     );
