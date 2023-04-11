@@ -117,8 +117,8 @@ export default function CreatePost() {
           <option value="no">No</option>
         </select>
       </div>
-      <button>Submit</button>
-      <button>Save</button>
+      <button id="submit">Submit</button>
+      <button id="save">Save</button>
     </div>
   );
 }
