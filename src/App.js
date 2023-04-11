@@ -11,6 +11,19 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [isHome, setIsHome] = useState(true);
 
+  const button = {
+      background: "none!important",
+      border: "none",
+      padding: "0!important",
+      /*optional*/
+      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+      fontSize: "16px",
+      color: "#FFFFFF",
+      textDecoration: "none",
+      cursor: "pointer",
+      backgroundColor: "#7BAFD4",
+  };
+  
   const linkStyle = {
     color: "#FFFFFF",
     textDecoration: "none",
@@ -56,7 +69,7 @@ function App() {
             <Link to="/" style={tinyCourseLink}> tinyCourse </Link>
           </div>
           <div className="linkBackground" style={linkBackground}>
-            {!isAuth ?  <Link to="/login" style={linkStyle}> Log In </Link> : <button onClick={signUserOut}> Log Out</button>}
+            {!isAuth ?  <Link to="/login" style={linkStyle}> Log In </Link> : <button onClick={signUserOut} style={button}> Log Out</button>}
           </div>
           
         </nav>

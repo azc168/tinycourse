@@ -15,7 +15,7 @@ export default function Homepage({setIsHome}) {
         },
         courseCatalog: {
             display: "flex",
-            border: "1px solid #7BAFD4",
+            border: "2px solid #7BAFD4",
             width: "480px",
             height: "200px",
             margin: "auto",
@@ -35,7 +35,7 @@ export default function Homepage({setIsHome}) {
         },
         searchBox: {
             display: "flex",
-            border: "1px solid #7BAFD4",
+            border: "2px solid #7BAFD4",
             width: "480px",
             height: "28px",
             margin: "auto",
@@ -45,7 +45,7 @@ export default function Homepage({setIsHome}) {
         },
         trendingClasses: {
             display: "flex",
-            border: "1px solid #7BAFD4",
+            border: "2px solid #7BAFD4",
             width: "480px",
             height: "180px",
             margin: "auto",
