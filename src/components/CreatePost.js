@@ -1,7 +1,9 @@
 import React from "react";
 import "./createpost.css";
 
-export default function CreatePost() {
+export default function CreatePost({ setIsHome }) {
+  setIsHome(false);
+
   function setRating(rating) {
     const stars = document.querySelectorAll(".star");
     stars.forEach((star, index) => {
@@ -13,12 +15,12 @@ export default function CreatePost() {
     });
   }
   function rateProduct(rating) {
-    const squares = document.querySelectorAll('.square');
+    const squares = document.querySelectorAll(".square");
     squares.forEach((square, index) => {
       if (index < rating) {
-        square.classList.add('selected');
+        square.classList.add("selected");
       } else {
-        square.classList.remove('selected');
+        square.classList.remove("selected");
       }
     });
   }
@@ -87,19 +89,19 @@ export default function CreatePost() {
           <label> Workload: </label>
           <ul class="squares">
             <li class="workload-item">
-              <div class="square" onClick={()=>rateProduct(1)}></div>
+              <div class="square" onClick={() => rateProduct(1)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={()=>rateProduct(2)}></div>
+              <div class="square" onClick={() => rateProduct(2)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={()=>rateProduct(3)}></div>
+              <div class="square" onClick={() => rateProduct(3)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={()=>rateProduct(4)}></div>
+              <div class="square" onClick={() => rateProduct(4)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={()=>rateProduct(5)}></div>
+              <div class="square" onClick={() => rateProduct(5)}></div>
             </li>
           </ul>
         </div>
