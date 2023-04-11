@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React, { useState, useEffect } from "react";
 import "./createpost.css";
 import { addDoc, collection } from "firebase/firestore";
@@ -13,7 +12,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
   const [attendance, setAttendance] = useState("Yes");
   const [semester, setSemester] = useState("Fall");
   const [title, setTitle] = useState("");
-  const [rate, seRate] = useState("");
+  const [rate, setRate] = useState("");
   const [workload, setWorkload] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
@@ -51,7 +50,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
     if (!isAuth) {
         navigate("/");
     }
-  }, []);
+  });
 
   function setRating(rating) {
     const stars = document.querySelectorAll(".star");
@@ -223,7 +222,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           <option value="no">No</option>
         </select>
       </div>
-      <button id="submit" onClick={createPost}>Submit</button>
+      <button id="submit" onClick={createPost}>Publish</button>
       <button id="save">Save</button>
     </div>
   );
