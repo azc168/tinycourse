@@ -1,7 +1,7 @@
 import React from "react";
 import "./createpost.css";
 
-export default function CreatePost({ setIsHome }) {
+export default function CreatePost({ setIsHome}) {
   setIsHome(false);
 
   function setRating(rating) {
@@ -85,7 +85,7 @@ export default function CreatePost({ setIsHome }) {
             </span>
           </div>
         </div>
-        <div class="workload">
+        <div className="workload">
           <label> Workload: </label>
           <ul class="squares">
             <li class="workload-item">
@@ -104,6 +104,12 @@ export default function CreatePost({ setIsHome }) {
               <div class="square" onClick={() => rateProduct(5)}></div>
             </li>
           </ul>
+        </div>
+        <div className="difficulty">
+          <label>Difficulty: </label>
+          <span class="difficulty-label">1</span>
+          <input type="range" id="rating" name="rating" min="1" max="5"></input>
+          <span class="difficulty-label">5</span>
         </div>
       </div>
       <div className="description-container">
