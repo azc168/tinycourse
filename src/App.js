@@ -20,8 +20,11 @@ function App() {
   }
   return (
     <Router>
-      <nav>
+      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Link to="/createpost"> Review a Class </Link>
+        <div className='logo'>
+          <h1>tinyCourse</h1>
+        </div>
         {!isAuth ?  <Link to="/login"> Login </Link> : <button onClick={signUserOut}> Log Out</button>}
       </nav>
       <Routes>
