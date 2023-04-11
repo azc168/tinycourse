@@ -9,6 +9,7 @@ import { auth } from './firebase-config';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+  const [isHome, setIsHome] = useState(true);
 
   const linkStyle = {
     color: "#FFFFFF",
@@ -49,7 +50,7 @@ function App() {
       <div className="outer" style={outer}>
         <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div className="linkBackground" style={linkBackground}>
-            <Link to="/createpost" style={linkStyle}> Review a Class </Link>
+            {!isHome ? <Link to="/" style={linkStyle}> Back to Home</Link> : <Link to="/createpost" style={linkStyle}> Review a Class </Link>}
           </div> 
           <div className='tinyCourse'>
             <Link to="/" style={tinyCourseLink}> tinyCourse </Link>
@@ -60,10 +61,9 @@ function App() {
           
         </nav>
       </div>
-      
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/createpost" element={<CreatePost />} />
+        <Route path="/" element={<Homepage setIsHome={setIsHome}/>} />
+        <Route path="/createpost" element={<CreatePost setIsHome = {setIsHome}/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth}/>} />
       </Routes>
     </Router>

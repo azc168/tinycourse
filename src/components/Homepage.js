@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function Homepage() {
+export default function Homepage({setIsHome}) {
+    setIsHome(true);
     const styles = {
         blurb: {
             textAlign: "center",
