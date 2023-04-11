@@ -10,6 +10,31 @@ import { auth } from './firebase-config';
 function App() {
   const [isAuth, setIsAuth] = useState(false);
 
+  const linkStyle = {
+    color: "#FFFFFF",
+    textDecoration: "none",
+  };
+
+  const linkBackground = {
+    display: "flex",
+    backgroundColor: "#7BAFD4",
+    width: "120px",
+    height: "40px",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const outer = {
+    margin: "2% 5% 2%",
+  };
+
+  const tinyCourseLink = {
+    textDecoration: "none",
+    color: "#7BAFD4",
+    fontSize: "xxx-large",
+    fontWeight: "500",
+    textShadow: "1px 1px 2px #D3D3D3",
+  };
 
   const signUserOut = () => {
     signOut(auth).then(() => {
@@ -18,15 +43,24 @@ function App() {
       window.location.pathname = "/login";
     })
   }
+
   return (
     <Router>
-      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <Link to="/createpost"> Review a Class </Link>
-        <div className='logo'>
-          <h1>tinyCourse</h1>
-        </div>
-        {!isAuth ?  <Link to="/login"> Login </Link> : <button onClick={signUserOut}> Log Out</button>}
-      </nav>
+      <div className="outer" style={outer}>
+        <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div className="linkBackground" style={linkBackground}>
+            <Link to="/createpost" style={linkStyle}> Review a Class </Link>
+          </div> 
+          <div className='tinyCourse'>
+            <Link to="/" style={tinyCourseLink}> tinyCourse </Link>
+          </div>
+          <div className="linkBackground" style={linkBackground}>
+            {!isAuth ?  <Link to="/login" style={linkStyle}> Log In </Link> : <button onClick={signUserOut}> Log Out</button>}
+          </div>
+          
+        </nav>
+      </div>
+      
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/createpost" element={<CreatePost />} />
