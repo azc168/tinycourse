@@ -6,6 +6,7 @@ export default function Homepage({setIsHome}) {
         blurb: {
             textAlign: "center",
             color: "#7BAFD4",
+            marginBottom: "20px",
         },
         boxes: {
         },
