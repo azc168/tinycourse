@@ -43,12 +43,24 @@ function App() {
     margin: "2% 5% 2%",
   };
 
+  const tinyCourseStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
   const tinyCourseLink = {
     textDecoration: "none",
     color: "#7BAFD4",
     fontSize: "xxx-large",
     fontWeight: "500",
     textShadow: "1px 1px 2px #D3D3D3",
+    margin: "0px 10px 0px",
+  };
+
+  const imageStyle = {
+    width: "70px",
+    height: "80px",
   };
 
   const signUserOut = () => {
@@ -82,11 +94,12 @@ function App() {
               </Link>
             )}
           </div>
-          <div className="tinyCourse">
+          <div className="tinyCourse" style={tinyCourseStyle}>
             <Link to="/" style={tinyCourseLink}>
               {" "}
               tinyCourse{" "}
             </Link>
+            <img src="https://i.postimg.cc/Gt1nV6WZ/Screen-Shot-2023-04-11-at-11-16-25-PM.png" alt='' style={imageStyle}/>
           </div>
           <div className="linkBackground" style={linkBackground}>
             {!isAuth ? (

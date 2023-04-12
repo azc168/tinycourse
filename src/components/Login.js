@@ -1,7 +1,8 @@
 import React from 'react'
 import {auth, provider} from '../firebase-config';
-import {signInWithPopup} from 'firebase/auth';
+import {AuthErrorCodes, signInWithPopup} from 'firebase/auth';
 import {useNavigate} from "react-router-dom";
+import Card from "./Card";
 import "./login.css";
 
  export default function Login({setIsAuth}) {
@@ -29,6 +30,12 @@ import "./login.css";
         marginRight: "3px",
     };
 
+    const cardStyle = {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    }
+
     const button = {
         display: "flex",
         background: "none!important",
@@ -50,10 +57,25 @@ import "./login.css";
       };
 
     return (
-        <div className="loginPage" style={loginStyle}>
-            <p style={spacing}>Please</p>
-            <button className="login-with-google-btn" style={button} onClick={signInWithGoogle}>Sign in with Google</button> 
-            <p style={spacing}>to continue</p>
+        <div>
+            <div className="loginPage" style={loginStyle}>
+                <p style={spacing}>Please</p>
+                <button className="login-with-google-btn" style={button} onClick={signInWithGoogle}>Sign in with Google</button> 
+                <p style={spacing}>to continue</p>
+            </div>
+            <div className="descriptionCardA" style={cardStyle}>
+                <Card 
+                    imageUrl="https://thumbs.dreamstime.com/b/magnifying-glass-cartoon-illustration-isolated-white-magnifying-glass-black-117871094.jpg"
+                    body="Browse Popular Courses" />
+                <Card 
+                    imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrLNphYDymieeHaZehas3iettQdmc2LOIAFQ&usqp=CAU" 
+                    body = "Read Reviews By Department"/>
+                <Card 
+                    imageUrl="https://i.postimg.cc/fLVgC5k1/paper-g98bb13122-640.png"
+                    body="Write A Review" />
+            </div>
+            
         </div>
+
     );
  }
