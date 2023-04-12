@@ -1,8 +1,7 @@
-import React from 'react'
+import React, {Card} from 'react'
 import {auth, provider} from '../firebase-config';
 import {AuthErrorCodes, signInWithPopup} from 'firebase/auth';
 import {useNavigate} from "react-router-dom";
-import Card from "./Card";
 import "./login.css";
 
  export default function Login({setIsAuth}) {
