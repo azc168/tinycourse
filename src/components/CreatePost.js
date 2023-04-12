@@ -20,6 +20,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
 
   const reviewsCollectionRef = collection(db, "reviews");
   let navigate = useNavigate();
+
   const createPost = async () => {
     let author;
     if (name === "yes") {
@@ -43,6 +44,10 @@ export default function CreatePost({ setIsHome, isAuth }) {
       description,
       author,
     });
+    navigate("/");
+  };
+
+  const backHome = () => {
     navigate("/");
   };
 
@@ -222,8 +227,10 @@ export default function CreatePost({ setIsHome, isAuth }) {
           <option value="no">No</option>
         </select>
       </div>
-      <button id="submit" onClick={createPost}>Publish</button>
-      <button id="save">Save</button>
+      <div className="submitOrSave">
+        <button id="submit" onClick={createPost}>Publish</button>
+        <button id="save" onClick={backHome}>Save</button>
+      </div>
     </div>
   );
 }
