@@ -24,7 +24,9 @@ export default function Homepage({setIsHome}) {
             marginBottom: "20px",
         },
         pagination: {
-            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
         },
         searchBy: {
             display: "flex",
