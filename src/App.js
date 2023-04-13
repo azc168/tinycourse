@@ -83,12 +83,12 @@ function App() {
         >
           <div className="linkBackground" style={linkBackground}>
             {!isHome ? (
-              <Link to="/" style={linkStyle}>
+              <Link to="/" style={linkStyle} className="linkBackground">
                 {" "}
                 Back to Home
               </Link>
             ) : (
-              <Link to="/createpost" style={linkStyle}>
+              <Link to="/createpost" style={linkStyle} className="linkBackground">
                 {" "}
                 Review a Class{" "}
               </Link>
@@ -101,9 +101,9 @@ function App() {
             </Link>
             <img src="https://i.postimg.cc/Gt1nV6WZ/Screen-Shot-2023-04-11-at-11-16-25-PM.png" alt='' style={imageStyle}/>
           </div>
-          <div className="linkBackground" style={linkBackground}>
+          <div className="linkBackground" style={linkBackground} >
             {!isAuth ? (
-              <Link to="/login" style={linkStyle}>
+              <Link to="/login" style={linkStyle} className="linkBackground">
                 {" "}
                 Log In{" "}
               </Link>

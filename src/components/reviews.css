@@ -12,6 +12,7 @@ p {
     padding: 10px;
     margin: 10px;
     width: 45%;
+    border-radius: 10px;
   }
   
   .reviewHeader {
@@ -31,7 +32,7 @@ p {
   }
   
   .title p {
-    margin: 0;
+    margin-top: 5px;
     color: #000000;
   }
   
@@ -56,6 +57,11 @@ p {
     float: right;
     margin-right: 10px;
   }
+
+  .flagLink:hover {
+    cursor: pointer;
+  }
+  
   .flagLink:hover::after {
     content: "Report this review"; /* add text on hover */
     display: inline-block;

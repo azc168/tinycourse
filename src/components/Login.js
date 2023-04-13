@@ -53,7 +53,6 @@ import "./login.css";
         alignItems: "center",
         justifyContent: "center",
         marginBottom: "4px",
-
       };
 
     return (
