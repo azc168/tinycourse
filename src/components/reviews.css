@@ -52,4 +52,18 @@ p {
     margin: 5px 10px;
   }
 
-  
+  .flagLink {
+    float: right;
+    margin-right: 10px;
+  }
+  .flagLink:hover::after {
+    content: "Report this review"; /* add text on hover */
+    display: inline-block;
+    position: absolute; /* set position to absolute for positioning of the text box */
+    margin-left: 5px;
+    padding: 2px; /* add some padding to the box */
+    background-color: #f1f1f1; /* set the background color of the box */
+    border: 1px solid #ccc; /* add a border to the box */
+    border-radius: 5px; /* add some border radius to the box */
+    font-size: 12px; /* set the font size of the box */
+  }

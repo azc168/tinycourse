@@ -3,13 +3,12 @@ import { getFirestore} from "firebase/firestore";
 import {getAuth, GoogleAuthProvider} from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBvCusofACOhiEY2MhjoGMACaOOyq0AAfc",
-  authDomain: "tinycourse-f6e2c.firebaseapp.com",
-  databaseURL: "https://tinycourse-f6e2c-default-rtdb.firebaseio.com",
-  projectId: "tinycourse-f6e2c",
-  storageBucket: "tinycourse-f6e2c.appspot.com",
-  messagingSenderId: "134207837664",
-  appId: "1:134207837664:web:b3fc0ec7378155517dc785",
+  apiKey: "AIzaSyC_ni6cH1zwQCIbwNQZ1cfO4yRihkQP6q8",
+  authDomain: "testbug-f9629.firebaseapp.com",
+  projectId: "testbug-f9629",
+  storageBucket: "testbug-f9629.appspot.com",
+  messagingSenderId: "816310107616",
+  appId: "1:816310107616:web:e24f29a9836f9683197f85",
 };
 
 // Initialize Firebase
