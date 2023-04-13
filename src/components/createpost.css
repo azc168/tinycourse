@@ -58,6 +58,14 @@ textarea {
     font-size: 18px;
     cursor: pointer;
 }
+
+#submit:hover {
+  background-color: #5C8DA0;
+}
+#save:hover {
+  background-color: #5C8DA0;
+}
+
 /*star formatting below*/
 .stars {
     unicode-bidi: bidi-override;
@@ -112,5 +120,4 @@ textarea {
   .square:hover, .square.selected {
     background-color: #f7d23c;
   }
-
 /*css for slider*/

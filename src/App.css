@@ -1,0 +1,13 @@
+.linkBackground {
+  display: flex;
+  background-color: #7BAFD4;
+  width: 120px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkBackground:hover {
+  background-color: #5C8DA0;
+}
+
