@@ -1,6 +1,12 @@
- import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase-config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
+
+function handleFlag(id) {
+  window.alert(`Post ${id} has been reported.`);
+}
 
 export default function Reviews() {
   const [reviewLists, setReviewList] = useState([]);
@@ -21,6 +27,9 @@ export default function Reviews() {
             <div className="reviewHeader">
               <div className="title">
                 <h3>{review.title}</h3>
+                <a className="flagLink" onClick={() => handleFlag(review.id)}>
+                  <FontAwesomeIcon icon={faFlag} />
+                </a>
                 <h5>Posted by: {review.author.name}</h5>
                 <p>Rating: {review.rate}</p>
                 <p>Workload: {review.workload}</p>
@@ -40,4 +49,3 @@ export default function Reviews() {
     </div>
   );
 }
- 
