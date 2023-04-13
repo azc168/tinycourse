@@ -1,0 +1,54 @@
+p {
+    font-size: 14px;
+}
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .review {
+    background-color: #7BAFD4;
+    color: #000000;
+    padding: 10px;
+    margin: 10px;
+    width: 45%;
+  }
+  
+  .reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    flex: 1;
+    font-weight: 300; /* set the title font weight to 300 (thin) */
+  }
+  
+  .title h3 {
+    margin: 0;
+    color: #ffffff;
+  }
+  
+  .title p {
+    margin: 0;
+    color: #000000;
+  }
+  
+  h4 {
+    margin: 0;
+  }
+  h5 {
+    color: #888888; /* set the author text to gray */
+    margin: 5px 0px;
+  }
+  
+  .reviewText {
+    color: #000000;
+    font-weight: 300; /* set the review text font weight to 300 (thin) */
+  }
+
+  .reviewText p {
+    margin: 5px 10px;
+  }
+  

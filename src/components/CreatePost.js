@@ -172,19 +172,19 @@ export default function CreatePost({ setIsHome, isAuth }) {
           <label> Workload: </label>
           <ul class="squares">
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(1)}></div>
+              <div class="square" onClick={() => rateProduct(1/5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(2)}></div>
+              <div class="square" onClick={() => rateProduct(2/5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(3)}></div>
+              <div class="square" onClick={() => rateProduct(3/5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(4)}></div>
+              <div class="square" onClick={() => rateProduct(4/5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(5)}></div>
+              <div class="square" onClick={() => rateProduct(5/5)}></div>
             </li>
           </ul>
         </div>
