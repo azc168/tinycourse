@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from "./Card"
 import {auth, provider} from '../firebase-config';
-import {AuthErrorCodes, signInWithPopup} from 'firebase/auth';
+import {signInWithPopup} from 'firebase/auth';
 import {useNavigate} from "react-router-dom";
 import "./login.css";
 

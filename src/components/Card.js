@@ -1,5 +1,6 @@
 import React from 'react'
 import './card.css'
+import "./reviews.css";
 
 function Card({title, imageUrl, body}) {
     return (

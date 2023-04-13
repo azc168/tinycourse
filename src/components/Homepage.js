@@ -1,4 +1,5 @@
 import React from 'react';
+import Reviews from './Reviews';
 
 export default function Homepage({setIsHome}) {
     setIsHome(true);
@@ -78,6 +79,7 @@ export default function Homepage({setIsHome}) {
            <div className="pagination" style={styles.pagination}>
                <p> - Viewing <span className="blueWord" style={styles.blueWord}>A</span> to <span className="blueWord" style={styles.blueWord}>B</span> - </p>
            </div>
+           <Reviews />
        </div>
    )
 }
