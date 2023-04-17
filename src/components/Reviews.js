@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag } from '@fortawesome/free-solid-svg-icons';
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
 
 function handleFlag(id) {
   window.alert(`Post has been flagged for review.`);
@@ -14,8 +14,18 @@ export default function Reviews() {
 
   useEffect(() => {
     const getReviews = async () => {
-      const data = await getDocs(reviewsCollectionRef);
-      setReviewList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        const q = query(collection(db, "reviews"), where("department", "==", "COMP"));
+        const querySnapshot = await getDocs(q);
+        if (querySnapshot && querySnapshot.docs.length > 0) {
+          setReviewList(
+            querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+          );
+          console.log("Number of matching documents: ", querySnapshot.docs.length);
+        } else {
+          console.log("No matching documents found.");
+        }
+    //   const data = await getDocs(reviewsCollectionRef);
+    //   setReviewList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getReviews();
   }, [db]);
@@ -42,7 +52,7 @@ export default function Reviews() {
               <p>{review.description}</p>
             </div>
             <a className="flagLink" onClick={() => handleFlag(review.id)}>
-              <FontAwesomeIcon icon={faFlag} className="outlineFlag"/>
+              <FontAwesomeIcon icon={faFlag} className="outlineFlag" />
             </a>
           </div>
         );
