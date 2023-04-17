@@ -12,8 +12,8 @@ export default function CreatePost({ setIsHome, isAuth }) {
   const [attendance, setAttendance] = useState("Yes");
   const [semester, setSemester] = useState("Fall");
   const [title, setTitle] = useState("");
-  const [rate, setRate] = useState("");
-  const [workload, setWorkload] = useState("");
+  const [rate, setRate] = useState("4/5");
+  const [workload, setWorkload] = useState("3/5");
   const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("yes");
@@ -22,14 +22,28 @@ export default function CreatePost({ setIsHome, isAuth }) {
   let navigate = useNavigate();
 
   const createPost = async () => {
+    const requiredFields = [
+      course,
+      instructor,
+      title,
+      rate,
+      workload,
+      difficulty,
+      description,
+    ];
+    const isValid = requiredFields.every((field) => field !== "");
+    if (!isValid) {
+      alert("Please fill in all required fields.");
+      return;
+    }
     let author;
     if (name === "yes") {
-        author = {
-          name: auth.currentUser.displayName,
-          id: auth.currentUser.uid,
-        };
-      } else {
-        author = { name: "anonymous" };
+      author = {
+        name: auth.currentUser.displayName,
+        id: auth.currentUser.uid,
+      };
+    } else {
+      author = { name: "anonymous" };
     }
     await addDoc(reviewsCollectionRef, {
       department,
@@ -53,7 +67,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
 
   useEffect(() => {
     if (!isAuth) {
-        navigate("/");
+      navigate("/");
     }
   });
 
@@ -84,7 +98,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
       </div>
       <div className="top-container">
         <div className="department">
-          <label> Select a Department: </label>
+          <label> Select a Department<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <select
             id="department-dropdown"
             onChange={(event) => {
@@ -97,7 +111,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           </select>
         </div>
         <div className="course">
-          <label> Course Number: </label>
+          <label> Course Number<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <input
             placeholder="ex: 110"
             onChange={(event) => {
@@ -106,7 +120,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           ></input>
         </div>
         <div className="instructor">
-          <label> Instructor Name: </label>
+          <label> Instructor Name<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <input
             placeholder="ex: Kris Jordan"
             onChange={(event) => {
@@ -115,7 +129,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           ></input>
         </div>
         <div className="attendance">
-          <label> Attendance Required: </label>
+          <label> Attendance Required<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <select
             id="attendance-dropdown"
             onChange={(event) => {
@@ -127,7 +141,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           </select>
         </div>
         <div className="Semester">
-          <label> Semester Taken: </label>
+          <label> Semester Taken<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <select
             id="semester-dropdown"
             onChange={(event) => {
@@ -140,7 +154,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           </select>
         </div>
         <div className="title">
-          <label> Title of Review: </label>
+          <label> Title of Review<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <input
             placeholder="ex: Best Class Ever!"
             onChange={(event) => {
@@ -149,7 +163,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           ></input>
         </div>
         <div className="rating">
-          <label> Rating: </label>
+          <label> Rating<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <div className="stars">
             <span className="star" onClick={() => setRating(1)}>
               &#9733;
@@ -169,27 +183,27 @@ export default function CreatePost({ setIsHome, isAuth }) {
           </div>
         </div>
         <div className="workload">
-          <label> Workload: </label>
+          <label> Workload<span style={{ color: "red" }}> *</span></label>
           <ul class="squares">
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(1/5)}></div>
+              <div class="square" onClick={() => rateProduct(1 / 5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(2/5)}></div>
+              <div class="square" onClick={() => rateProduct(2 / 5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(3/5)}></div>
+              <div class="square" onClick={() => rateProduct(3 / 5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(4/5)}></div>
+              <div class="square" onClick={() => rateProduct(4 / 5)}></div>
             </li>
             <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(5/5)}></div>
+              <div class="square" onClick={() => rateProduct(5 / 5)}></div>
             </li>
           </ul>
         </div>
         <div className="difficulty">
-          <label>Difficulty: </label>
+          <label>Difficulty<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
           <span class="difficulty-label">1</span>
           <input
             type="range"
@@ -205,7 +219,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
         </div>
       </div>
       <div className="description-container">
-        <label>Description:</label>
+        <label>Description<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
         <br></br>
         <br></br>
         <textarea
@@ -216,7 +230,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
         ></textarea>
       </div>
       <div className="bottom-container">
-        <label>Display my name on this review: </label>
+        <label>Display my name on this review<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
         <select
           id="attendance-dropdown"
           onChange={(event) => {
@@ -228,8 +242,12 @@ export default function CreatePost({ setIsHome, isAuth }) {
         </select>
       </div>
       <div className="submitOrSave">
-        <button id="submit" onClick={createPost}>Publish</button>
-        <button id="save" onClick={backHome}>Save</button>
+        <button id="submit" onClick={createPost}>
+          Publish
+        </button>
+        <button id="save" onClick={backHome}>
+          Save
+        </button>
       </div>
     </div>
   );
