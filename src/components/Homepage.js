@@ -29,7 +29,7 @@ export default function Homepage({ setIsHome }) {
     courseCatalog: {
       border: "2px solid #7BAFD4",
       minHeight: "200px", // set a minimum height instead of a fixed height
-      maxWidth: "800px",
+      maxWidth: "820px",
       margin: "auto",
       alignItems: "center",
       justifyContent: "center",
@@ -66,7 +66,7 @@ export default function Homepage({ setIsHome }) {
       alignItems: "center",
       justifyContent: "center",
       marginBottom: "20px",
-      maxWidth: "800px",
+      maxWidth: "820px",
     },
   };
 

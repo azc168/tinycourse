@@ -37,6 +37,9 @@ export default function Reviews() {
           <div className="review">
             <div className="reviewHeader">
               <div className="title">
+                <button className="flagLink" onClick={() => handleFlag(review.id)}>
+                  <FontAwesomeIcon icon={faFlag} className="outlineFlag" />
+                </button>
                 <h3>{review.title}</h3>
                 <h5>Posted by: {review.author.name}</h5>
                 <p>Rating: {review.rate}</p>
@@ -51,9 +54,6 @@ export default function Reviews() {
               <h4>Description:</h4>
               <p>{review.description}</p>
             </div>
-            <a className="flagLink" onClick={() => handleFlag(review.id)}>
-              <FontAwesomeIcon icon={faFlag} className="outlineFlag" />
-            </a>
           </div>
         );
       })}
