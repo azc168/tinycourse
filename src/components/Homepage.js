@@ -11,6 +11,7 @@ import { fArray } from "./DataArrays";
 import { gArray } from "./DataArrays";
 import { hArray } from "./DataArrays";
 import { iArray } from "./DataArrays";
+import { jArray } from "./DataArrays";
 
 export default function Homepage({ setIsHome }) {
   setIsHome(true);
@@ -27,8 +28,8 @@ export default function Homepage({ setIsHome }) {
     },
     courseCatalog: {
       border: "2px solid #7BAFD4",
-      width: "480px",
       minHeight: "200px", // set a minimum height instead of a fixed height
+      maxWidth: "800px",
       margin: "auto",
       alignItems: "center",
       justifyContent: "center",
@@ -60,12 +61,12 @@ export default function Homepage({ setIsHome }) {
     trendingClasses: {
       display: "flex",
       border: "2px solid #7BAFD4",
-      width: "480px",
-      height: "180px",
+      minHeight: "200px",
       margin: "auto",
       alignItems: "center",
       justifyContent: "center",
       marginBottom: "20px",
+      maxWidth: "800px",
     },
   };
 
@@ -80,7 +81,7 @@ export default function Homepage({ setIsHome }) {
     <CatalogCard letter="G" departments={gArray} />,
     <CatalogCard letter="H" departments={hArray} />,
     <CatalogCard letter="I" departments={iArray} />,
-    // <CatalogCard letter="J" departments={jArray} />,
+    <CatalogCard letter="J" departments={jArray} />,
     // <CatalogCard letter="K" departments={kArray} />,
     // <CatalogCard letter="L" departments={lArray} />,
     // <CatalogCard letter="M" departments={mArray} />,
@@ -92,7 +93,7 @@ export default function Homepage({ setIsHome }) {
     // <CatalogCard letter="W" departments={wArray} />,
   ];
 
-  const topCatalogCards = catalogCards.slice(0, 3);
+  const topCatalogCards = catalogCards.slice(0, 5);
 
   const toggleCatalogCards = () => {
     setShowAllCatalogCards(!showAllCatalogCards);
