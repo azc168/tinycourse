@@ -49,6 +49,8 @@ export const hArray = ["HBEH", "HEBR", "HIST", "HNRS", "HNUR", "HPM"];
 
 export const iArray = ["IDST", "INLS", "ITAL"];
 
+export const jArray = ["JAPN", "JWST"];
+
 export const courseArrays = {
   AAADCourses: [
     "101",
