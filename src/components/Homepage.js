@@ -1,8 +1,5 @@
 import React from 'react';
 import trendCard from './TrendCard';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import CardGroup from 'react-bootstrap/CardGroup';
 
 export default function Homepage({setIsHome}) {
     setIsHome(true);
