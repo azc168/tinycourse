@@ -1,4 +1,8 @@
 import React from 'react';
+import trendCard from './TrendCard';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 export default function Homepage({setIsHome}) {
     setIsHome(true);
@@ -15,7 +19,9 @@ export default function Homepage({setIsHome}) {
             fontWeight: "bold",
         },
         courseCatalog: {
-            display: "flex",
+            display: "grid",
+            gridTemplateAreas: "'header' 'content'",
+            gridTemplateRows: '30px  40px',
             border: "2px solid #7BAFD4",
             width: "480px",
             height: "200px",
@@ -47,7 +53,9 @@ export default function Homepage({setIsHome}) {
             marginBottom: "20px",
         },
         trendingClasses: {
-            display: "flex",
+            // display: "grid",
+            // gridTemplateAreas: "'header' 'content'",
+            // gridTemplateRows: '30px calc(10rem - 80px) 70px',
             border: "2px solid #7BAFD4",
             width: "480px",
             height: "180px",
@@ -55,7 +63,12 @@ export default function Homepage({setIsHome}) {
             alignItems: "center",
             justifyContent: "center",
             marginBottom: "20px",
+        },
+        trendCards: {
+            display: "inline-flex"
         }
+
+
     };
 
    return (
@@ -69,7 +82,11 @@ export default function Homepage({setIsHome}) {
                     <input type="text" id="searchBy" style={styles.searchBy} placeholder="e.g. COMP110, WB, ECON"></input>
                 </div>
                 <div className="trendingClasses" style={styles.trendingClasses}>
-                    <p>See this week's <span className="blueWord" style={styles.blueWord}>trending classes</span></p>
+                    <p gridArea="header" className="trendTitle">See this week's <span className="blueWord" style={styles.blueWord}>trending classes</span></p>
+                    <div className="trendCards">
+                        <div className="card">{trendCard()}</div>
+                    </div>
+
                 </div>
                 <div className="courseCatalog" style={styles.courseCatalog}>
                     <p>Browse <span className="blueWord" style={styles.blueWord}>course catalog</span></p>
