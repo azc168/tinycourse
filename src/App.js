@@ -2,6 +2,7 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import CreatePost from "./components/CreatePost";
 import Login from "./components/Login";
+import DepartmentPage from "./components/DepartmentPage";
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
 import React, { useState } from "react";
 import { signOut } from "firebase/auth";
@@ -129,6 +130,7 @@ function App() {
           }
         />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+        <Route path="/department/:department" element={<DepartmentPage />} />
       </Routes>
     </Router>
   );
