@@ -28,6 +28,21 @@ export const cArray = [
   "CZCH",
 ];
 
+export const dArray = ["DHYG", "DRAM"];
+
+export const eArray = [
+  "ECON",
+  "EDUC",
+  "ENEC",
+  "ENGL",
+  "ENVR",
+  "EPID",
+  "EURO",
+  "EXSS",
+];
+
+export const fArray = ["FOLK", "FREN"];
+
 export const courseArrays = {
   AAADCourses: [
     "101",
