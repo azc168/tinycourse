@@ -4,8 +4,12 @@ import { db } from "../firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
 
-function handleFlag(id) {
-  window.alert(`Post has been flagged for review.`);
+function handleFlag(id) {  
+  var input = window.prompt(`Please let us know why you flagged this review:`);
+  if (input != null) {
+    window.alert(`Post has been flagged for review.`);
+  }
+  
 }
 
 export default function Reviews() {
