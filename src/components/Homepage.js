@@ -8,6 +8,9 @@ import { cArray } from "./DataArrays";
 import { dArray } from "./DataArrays";
 import { eArray } from "./DataArrays";
 import { fArray } from "./DataArrays";
+import { gArray } from "./DataArrays";
+import { hArray } from "./DataArrays";
+import { iArray } from "./DataArrays";
 
 export default function Homepage({ setIsHome }) {
   setIsHome(true);
@@ -74,9 +77,9 @@ export default function Homepage({ setIsHome }) {
     <CatalogCard letter="D" departments={dArray} />,
     <CatalogCard letter="E" departments={eArray} />,
     <CatalogCard letter="F" departments={fArray} />,
-    // <CatalogCard letter="G" departments={gArray} />,
-    // <CatalogCard letter="H" departments={hArray} />,
-    // <CatalogCard letter="I" departments={iArray} />,
+    <CatalogCard letter="G" departments={gArray} />,
+    <CatalogCard letter="H" departments={hArray} />,
+    <CatalogCard letter="I" departments={iArray} />,
     // <CatalogCard letter="J" departments={jArray} />,
     // <CatalogCard letter="K" departments={kArray} />,
     // <CatalogCard letter="L" departments={lArray} />,
