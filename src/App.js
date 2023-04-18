@@ -109,10 +109,10 @@ function App() {
                 Log In{" "}
               </Link>
             ) : (
-              <button onClick={signUserOut} style={button}>
+              <Link onClick={signUserOut} style={linkStyle} className="linkBackground">
                 {" "}
                 Log Out
-              </button>
+              </Link>
             )}
           </div>
         </nav>

@@ -14,7 +14,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
   const [title, setTitle] = useState("");
   const [rate, setRate] = useState("4/5");
   const [workload, setWorkload] = useState("3/5");
-  const [difficulty, setDifficulty] = useState("");
+  const [difficulty, setDifficulty] = useState("5/5");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("yes");
 
@@ -105,9 +105,9 @@ export default function CreatePost({ setIsHome, isAuth }) {
               setDepartment(event.target.value);
             }}
           >
-            <option value="comp">COMP</option>
-            <option value="phya">PHYA</option>
-            <option value="aaad">AAAD</option>
+            <option value="COMP">COMP</option>
+            <option value="PHYA">PHYA</option>
+            <option value="AAAD">AAAD</option>
           </select>
         </div>
         <div className="course">
