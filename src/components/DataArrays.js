@@ -43,6 +43,12 @@ export const eArray = [
 
 export const fArray = ["FOLK", "FREN"];
 
+export const gArray = ["GEOG", "GEOL", "GERM", "GLBL", "GNET", "GREK", "GSLL"];
+
+export const hArray = ["HBEH", "HEBR", "HIST", "HNRS", "HNUR", "HPM"];
+
+export const iArray = ["IDST", "INLS", "ITAL"];
+
 export const courseArrays = {
   AAADCourses: [
     "101",
