@@ -7,7 +7,7 @@ import { faFlag } from "@fortawesome/free-solid-svg-icons";
 function handleFlag(id) {  
   var input = window.prompt(`Please let us know why you flagged this review:`);
   if (input != null) {
-    window.alert(`Post has been flagged for review.`);
+    window.alert(`Thanks! This post will be reviewed by an admin.`);
   }
   
 }
