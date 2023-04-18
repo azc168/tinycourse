@@ -28,19 +28,27 @@ p {
   
   .title h3 {
     margin: 0;
-    color: #ffffff;
+    color: #000000;
   }
   
   .title p {
     margin-top: 5px;
     color: #000000;
   }
+
+  button.flagLink {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #7BAFD4;
+    background: none!important;
+    border: none;
+  }
   
   h4 {
     margin: 0;
   }
   h5 {
-    color: #888888; /* set the author text to gray */
+    color: #FFFFFF; /* set the author text to gray */
     margin: 5px 0px;
   }
   
@@ -55,7 +63,7 @@ p {
 
   .flagLink {
     float: right;
-    margin-right: 10px;
+    margin-top: 5px;
   }
 
   .flagLink:hover {
@@ -66,7 +74,7 @@ p {
     content: "Report this review"; /* add text on hover */
     display: inline-block;
     position: absolute; /* set position to absolute for positioning of the text box */
-    margin-left: 5px;
+    margin-left: 4px;
     padding: 2px; /* add some padding to the box */
     background-color: #f1f1f1; /* set the background color of the box */
     border: 1px solid #ccc; /* add a border to the box */
