@@ -106,8 +106,8 @@ export default function CreatePost({ setIsHome, isAuth }) {
             }}
           >
             <option value="COMP">COMP</option>
-            <option value="PHYA">PHYA</option>
-            <option value="AAAD">AAAD</option>
+            <option value="BIOL">BIOL</option>
+            <option value="ECON">ECON</option>
           </select>
         </div>
         <div className="course">
