@@ -12,6 +12,7 @@ import { gArray } from "./DataArrays";
 import { hArray } from "./DataArrays";
 import { iArray } from "./DataArrays";
 import { jArray } from "./DataArrays";
+import TrendCard from "./TrendCard";
 
 export default function Homepage({ setIsHome }) {
   setIsHome(true);
@@ -59,15 +60,21 @@ export default function Homepage({ setIsHome }) {
       marginBottom: "20px",
     },
     trendingClasses: {
-      display: "flex",
       border: "2px solid #7BAFD4",
-      minHeight: "200px",
+      height: "250px",
+      maxWidth: "820px",
       margin: "auto",
       alignItems: "center",
       justifyContent: "center",
       marginBottom: "20px",
-      maxWidth: "820px",
+      paddingBottom: "20px",
     },
+    trendingContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
+      marginTop: "1rem"
+    }
   };
 
   const [showAllCatalogCards, setShowAllCatalogCards] = useState(false);
@@ -139,6 +146,9 @@ export default function Homepage({ setIsHome }) {
               trending classes
             </span>
           </p>
+          <div className="trendingContainer" style={styles.trendingContainer}>
+            {catalogCards}
+          </div>
         </div>
         <div className="courseCatalog" style={styles.courseCatalog}>
           <p>

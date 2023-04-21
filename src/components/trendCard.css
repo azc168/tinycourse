@@ -1,0 +1,25 @@
+.card {
+    background-color: #7BAFD4;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    width: 100px;
+    margin-bottom: 20px;
+  }
+
+  .department-link:hover {
+    color: white;
+  }
+
+  header {
+    color: white;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333333;
+  }
+
+  .card div {
+    margin-bottom: 5px;
+  }
