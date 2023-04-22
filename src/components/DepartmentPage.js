@@ -50,7 +50,7 @@ export default function DepartmentPage() {
                 )}
               </div>
               <div className="class-review-link">
-                <Link to={`/department/${department}/${course.Number}/reviews`}>
+                <Link to={`/department/${department}/${course.Number}/reviews`} state={{courseDep:department,courseNum:course.Number}}>
                   <u>Read more reviews</u>
                 </Link>
               </div>

@@ -164,9 +164,7 @@ export default function Homepage({ setIsHome }) {
             {showAllCatalogCards ? "View less" : "View more"}
           </button>
         </div>
-      </div>
-      
-      <Reviews />
+      </div>      
     </div>
   );
 }
