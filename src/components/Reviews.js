@@ -16,6 +16,9 @@ export default function Reviews(props) {
   const { courseDep, courseNum } = props;
 
   useEffect(() => {
+    if(courseNum == null) {
+      return;
+    }
     const getReviews = async () => {
       const q = query(
         collection(db, "reviews"),
@@ -36,7 +39,7 @@ export default function Reviews(props) {
       }
     };
     getReviews();
-  }, []);
+  }, [courseDep,courseNum]);
 
   return (
     <div className="reviews">
