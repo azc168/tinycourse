@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Reviews from "./Reviews";
 import CatalogCard from "./CatalogCard";
 import "./homepage.css";
 import { aArray } from "./DataArrays";

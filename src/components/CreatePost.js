@@ -12,8 +12,8 @@ export default function CreatePost({ setIsHome, isAuth }) {
   const [attendance, setAttendance] = useState("Yes");
   const [semester, setSemester] = useState("Fall");
   const [title, setTitle] = useState("");
-  const [rate, setRate] = useState("4/5");
-  const [workload, setWorkload] = useState("3/5");
+  const [rate, ] = useState("4/5");
+  const [workload, ] = useState("3/5");
   const [difficulty, setDifficulty] = useState("5/5");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("yes");
