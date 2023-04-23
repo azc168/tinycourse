@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CatalogCard from "./CatalogCard";
+import Searchbar from "./Searchbar";
 import "./homepage.css";
 import { aArray } from "./DataArrays";
 import { bArray } from "./DataArrays";
@@ -11,9 +12,10 @@ import { gArray } from "./DataArrays";
 import { hArray } from "./DataArrays";
 import { iArray } from "./DataArrays";
 import { jArray } from "./DataArrays";
+import classData from "./catalogData.json";
 
 export default function Homepage({ setIsHome }) {
-  setIsHome(true);
+//   setIsHome(true);
   const styles = {
     blurb: {
       textAlign: "center",
@@ -40,18 +42,11 @@ export default function Homepage({ setIsHome }) {
       alignItems: "center",
       justifyContent: "center",
     },
-    searchBy: {
-      display: "flex",
-      width: "170px",
-      margin: "auto",
-      alignItems: "center",
-      justifyContent: "center",
-    },
     searchBox: {
       display: "flex",
       border: "2px solid #7BAFD4",
-      width: "480px",
-      height: "28px",
+      width: "820px",
+      height: "50px",
       margin: "auto",
       alignItems: "center",
       justifyContent: "center",
@@ -103,7 +98,7 @@ export default function Homepage({ setIsHome }) {
       <div className="blurb" style={styles.blurb}>
         <p>
           Class reviews by students, for students. Get a glimpse into classes
-          from up to one year ago!
+          from up to one year ago.
         </p>
       </div>
       <div className="boxes" style={styles.boxes}>
@@ -124,12 +119,7 @@ export default function Homepage({ setIsHome }) {
             </span>
             :{" "}
           </label>
-          <input
-            type="text"
-            id="searchBy"
-            style={styles.searchBy}
-            placeholder="e.g. COMP110, WB, ECON"
-          ></input>
+          <Searchbar placeholder={"e.g. COMP110, WB, ECON"} data={classData}/>
         </div>
         <div className="trendingClasses" style={styles.trendingClasses}>
           <p>

@@ -1,13 +1,12 @@
 import React from "react";
-import { useLocation } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import Reviews from "./Reviews";
 export default function ClassPage() {
-    const location = useLocation();
-    const {courseDep, courseNum} = location.state;
+  const { courseDep, courseNum } = useParams();
 
   return (
     <div>
-        <Reviews courseDep={courseDep} courseNum={courseNum}/>
+      <Reviews courseDep={courseDep} courseNum={courseNum} />
     </div>
   );
 }

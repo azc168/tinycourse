@@ -1,0 +1,152 @@
+[
+  {
+    "Department": "Biol",
+    "Number": "101",
+    "Name": "Principles of Biology",
+    "Tags": "PX"
+  },
+  {
+    "Department": "Biol",
+    "Number": "101L",
+    "Name": "Introductory Biology Laboratory",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Biol",
+    "Number": "102L",
+    "Name": "Introductory Biology Laboratory with Research",
+    "Tags": ["CI", "EE"]
+  },
+  {
+    "Department": "Biol",
+    "Number": "104",
+    "Name": "Biodiversity",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Biol",
+    "Number": "113",
+    "Name": "Issues in Modern Biology",
+    "Tags": "PL"
+  },
+  {
+    "Department": "Biol",
+    "Number": "115",
+    "Name": "Reasoning with Data: Navigating a Quantitative World",
+    "Tags": "QR"
+  },
+  {
+    "Department": "Biol",
+    "Number": "150",
+    "Name": "The Creativity of Science, or Scientific Thinking in Biology",
+    "Tags": "PL"
+  },
+  {
+    "Department": "Comp",
+    "Number": "110",
+    "Name": "Introduction to Programming and Data Science",
+    "Tags": "QR"
+  },
+  {
+    "Department": "Comp",
+    "Number": "116",
+    "Name": "Introduction to Scientific Programming",
+    "Tags": "QR"
+  },
+  {
+    "Department": "Comp",
+    "Number": "126",
+    "Name": "Data Structures and Analysis",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "210",
+    "Name": "Data Structures and Analysis",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "211",
+    "Name": "Systems Fundamentals",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "222",
+    "Name": "ACM Programming Competition Practice",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "283",
+    "Name": "Discrete Structures",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "301",
+    "Name": "Foundations of Programming",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "311",
+    "Name": "Computer Organization",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "380",
+    "Name": "Introduction to Digital Culture",
+    "Tags": "PH"
+  },
+  {
+    "Department": "Econ",
+    "Number": "100",
+    "Name": "Economic Principles",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Econ",
+    "Number": "101",
+    "Name": "Introduction to Economics",
+    "Tags": "SS"
+  },
+  {
+    "Department": "Econ",
+    "Number": "111",
+    "Name": "The Economics of Entrepreneurship and Innovation",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Econ",
+    "Number": "125",
+    "Name": "Introduction to Entrepreneurship",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Econ",
+    "Number": "231",
+    "Name": "Economic History of Western Europe",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Econ",
+    "Number": "234",
+    "Name": "Survey of the History of Economic Thought",
+    "Tags": "PH"
+  },
+  {
+    "Department": "Econ",
+    "Number": "267",
+    "Name": "Comparative Economic Systems",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Econ",
+    "Number": "285",
+    "Name": "Access to Work in America",
+    "Tags": ["SS", "CI", "EE"]
+  }
+]
