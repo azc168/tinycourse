@@ -3,6 +3,7 @@ import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { useParams } from "react-router-dom";
 
 function handleFlag(id) {
   var input = window.prompt(`Please let us know why you flagged this review:`);
@@ -13,7 +14,8 @@ function handleFlag(id) {
 
 export default function Reviews(props) {
   const [reviewLists, setReviewList] = useState([]);
-  const { courseDep, courseNum } = props;
+  const params = useParams()
+  const { courseDep, courseNum } = { courseDep: params.department.toUpperCase(), courseNum: params.courseNum};
 
   useEffect(() => {
     if(courseNum == null) {
@@ -45,7 +47,7 @@ export default function Reviews(props) {
     <div className="reviews">
       {reviewLists.map((review) => {
         return (
-          <div className="review">
+          <div className="review" key={review.id}>
             <div className="reviewHeader">
               <div className="title">
                 <button
