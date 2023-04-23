@@ -13,7 +13,6 @@ function handleFlag(id) {
 
 export default function Reviews(props) {
   const [reviewLists, setReviewList] = useState([]);
-  const reviewsCollectionRef = collection(db, "reviews");
   const { courseDep, courseNum } = props;
 
   useEffect(() => {
@@ -35,11 +34,9 @@ export default function Reviews(props) {
       } else {
         console.log("No matching documents found.");
       }
-      //   const data = await getDocs(reviewsCollectionRef);
-      //   setReviewList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getReviews();
-  }, [db, courseDep, courseNum]);
+  }, []);
 
   return (
     <div className="reviews">
