@@ -98,7 +98,7 @@ export default function Homepage({ setIsHome }) {
       <div className="blurb" style={styles.blurb}>
         <p>
           Class reviews by students, for students. Get a glimpse into classes
-          from up to one year ago.
+          from up to one year ago!
         </p>
       </div>
       <div className="boxes" style={styles.boxes}>
