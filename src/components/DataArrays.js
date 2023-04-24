@@ -1,13 +1,8 @@
 export const aArray = [
   "AAAD",
-  "AERO",
   "AMST",
   "ANTH",
-  "APPL",
-  "ARAB",
-  "ARMY",
   "ARTH",
-  "ARTS",
   "ASIA",
   "ASTR",
 ];
@@ -15,13 +10,8 @@ export const aArray = [
 export const bArray = ["BIOC", "BIOL", "BIOS", "BMME", "BUSI"];
 
 export const cArray = [
-  "CBIO",
   "CHEM",
-  "CHER",
-  "CHIN",
-  "CLAR",
   "CLAS",
-  "CLSC",
   "CMPL",
   "COMM",
   "COMP",
@@ -36,14 +26,12 @@ export const eArray = [
   "ENEC",
   "ENGL",
   "ENVR",
-  "EPID",
-  "EURO",
   "EXSS",
 ];
 
 export const fArray = ["FOLK", "FREN"];
 
-export const gArray = ["GEOG", "GEOL", "GERM", "GLBL", "GNET", "GREK", "GSLL"];
+export const gArray = ["GEOG", "GEOL", "GERM", "GLBL", "GREK", "GSLL"];
 
 export const hArray = ["HBEH", "HEBR", "HIST", "HNRS", "HNUR", "HPM"];
 

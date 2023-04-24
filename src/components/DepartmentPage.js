@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import classData from "./classData.json";
 import "./departmentPage.css";
+// import { getDocs, collection, query, where } from "firebase/firestore";
 
 export default function DepartmentPage() {
   const { department } = useParams();
@@ -20,8 +21,37 @@ export default function DepartmentPage() {
       break;
   }
 
+  const filterSearch = () => {
+  }
+
   return (
-    <div>
+    <div className="page-body">
+      <div className="sort-bar">
+        <label>
+            {" "}
+            Sort: {" "}
+        </label>
+        <select name="sortOptions" id="high-low">
+          <option value="low-high-course-num">Low-high course number</option>
+          <option value="high-low-course-num">High-low course number</option>
+          <option value="high-low-rating">High-low rating</option>
+          <option value="low-high-rating">Low-high rating</option>
+          <option value="high-low-workload">High-low workload</option>
+          <option value="low-high-workload">Low-high workload</option>
+        </select>
+        <label id="genId">
+            {" "}
+            Filter by Gen Ed: {" "}
+        </label>
+        <select name="genedOptions" id="gen-ed">
+          <option value="Any">Any</option>
+          <option value="PH">PH</option>
+          <option value="QI">QI</option>
+          <option value="QR">QR</option>
+          <option value="WB">WB</option>
+        </select>
+        <button className="filter-search" onClick={filterSearch}>Find me classes!</button>
+      </div>
       <div className="class-card-container">
         {departmentCourses.length > 0 ? (
           departmentCourses.map((course, index) => (
