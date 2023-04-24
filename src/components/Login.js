@@ -3,7 +3,7 @@ import Card from "./Card"
 import {auth, provider} from '../firebase-config';
 import {signInWithPopup} from 'firebase/auth';
 import {useNavigate} from "react-router-dom";
-import "./login.css";
+import './login.css';
 
  export default function Login({setIsAuth}) {
     let navigate = useNavigate();
@@ -36,30 +36,11 @@ import "./login.css";
         justifyContent: "center",
     }
 
-    const button = {
-        display: "flex",
-        background: "none!important",
-        border: "none",
-        padding: "0!important",
-        /*optional*/
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-        fontSize: "20px",
-        fontWeight: "bold",
-        color: "#7BAFD4",
-        textDecoration: "underline",
-        cursor: "pointer",
-        backgroundColor: "#FFFFFF",
-        alignItems: "center",
-        justifyContent: "center",
-        marginBottom: "4px",
-      };
-
     return (
         <div>
             <div className="loginPage" style={loginStyle}>
                 <p style={spacing}>Please</p>
-                <button className="login-with-google-btn" style={button} onClick={signInWithGoogle}>Sign in with Google</button> 
+                <button className="login-with-google-btn" onClick={signInWithGoogle}>Sign in with Google</button> 
                 <p style={spacing}>to continue</p>
             </div>
             <div className="descriptionCardA" style={cardStyle}>
