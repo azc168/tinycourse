@@ -127,6 +127,9 @@ export default function Homepage({ setIsHome }) {
             <span className="blueWord" style={styles.blueWord}>
               trending classes
             </span>
+            <span className="fireEmoji">&#x1F525;</span>
+            <span className="fireEmoji">&#x1F525;</span>
+            <span className="fireEmoji">&#x1F525;</span>
           </p>
         </div>
         <div className="courseCatalog" style={styles.courseCatalog}>
