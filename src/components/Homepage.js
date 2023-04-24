@@ -15,7 +15,7 @@ import { jArray } from "./DataArrays";
 import classData from "./catalogData.json";
 
 export default function Homepage({ setIsHome }) {
-//   setIsHome(true);
+  setIsHome(true);
   const styles = {
     blurb: {
       textAlign: "center",
@@ -66,16 +66,16 @@ export default function Homepage({ setIsHome }) {
 
   const [showAllCatalogCards, setShowAllCatalogCards] = useState(false);
   const catalogCards = [
-    <CatalogCard letter="A" departments={aArray} />,
-    <CatalogCard letter="B" departments={bArray} />,
-    <CatalogCard letter="C" departments={cArray} />,
-    <CatalogCard letter="D" departments={dArray} />,
-    <CatalogCard letter="E" departments={eArray} />,
-    <CatalogCard letter="F" departments={fArray} />,
-    <CatalogCard letter="G" departments={gArray} />,
-    <CatalogCard letter="H" departments={hArray} />,
-    <CatalogCard letter="I" departments={iArray} />,
-    <CatalogCard letter="J" departments={jArray} />,
+    <CatalogCard key="A" letter="A" departments={aArray} />,
+    <CatalogCard key="B" letter="B" departments={bArray} />,
+    <CatalogCard key="C" letter="C" departments={cArray} />,
+    <CatalogCard key="D" letter="D" departments={dArray} />,
+    <CatalogCard key="E" letter="E" departments={eArray} />,
+    <CatalogCard key="F" letter="F" departments={fArray} />,
+    <CatalogCard key="G" letter="G" departments={gArray} />,
+    <CatalogCard key="H" letter="H" departments={hArray} />,
+    <CatalogCard key="I" letter="I" departments={iArray} />,
+    <CatalogCard key="J" letter="J" departments={jArray} />,
     // <CatalogCard letter="K" departments={kArray} />,
     // <CatalogCard letter="L" departments={lArray} />,
     // <CatalogCard letter="M" departments={mArray} />,
@@ -98,7 +98,7 @@ export default function Homepage({ setIsHome }) {
       <div className="blurb" style={styles.blurb}>
         <p>
           Class reviews by students, for students. Get a glimpse into classes
-          from up to one year ago!
+          from up to one year ago.
         </p>
       </div>
       <div className="boxes" style={styles.boxes}>
