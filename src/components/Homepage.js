@@ -76,15 +76,6 @@ export default function Homepage({ setIsHome }) {
     <CatalogCard key="H" letter="H" departments={hArray} />,
     <CatalogCard key="I" letter="I" departments={iArray} />,
     <CatalogCard key="J" letter="J" departments={jArray} />,
-    // <CatalogCard letter="K" departments={kArray} />,
-    // <CatalogCard letter="L" departments={lArray} />,
-    // <CatalogCard letter="M" departments={mArray} />,
-    // <CatalogCard letter="N" departments={nArray} />,
-    // <CatalogCard letter="P" departments={pArray} />,
-    // <CatalogCard letter="R" departments={rArray} />,
-    // <CatalogCard letter="S" departments={sArray} />,
-    // <CatalogCard letter="T" departments={tArray} />,
-    // <CatalogCard letter="W" departments={wArray} />,
   ];
 
   const topCatalogCards = catalogCards.slice(0, 5);
