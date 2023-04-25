@@ -8,7 +8,6 @@ import "./departmentPage.css";
 export default function DepartmentPage() {
   const [sortValue, setSortValue] = useState("");
   const [genValue, setGenValue] = useState("Any");
-  const params = useParams();
   const { department } = useParams();
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -148,7 +147,7 @@ export default function DepartmentPage() {
             <div key={index} className="class-card">
               <div className="class-header">
                 <div className="class-department">
-                  {params.department} {course.Number}
+                  {department} {course.Number}
                 </div>
               </div>
               <div className="class-name">{course.Name}</div>
