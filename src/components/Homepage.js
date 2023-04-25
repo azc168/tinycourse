@@ -16,8 +16,7 @@ import {oneten, fiveninety} from "./DataArrays";
 import TrendCard from "./TrendCard";
 import classData from "./catalogData.json";
 
-export default function Homepage({ setIsHome }) {
-  setIsHome(true);
+export default function Homepage() {
   const styles = {
     blurb: {
       textAlign: "center",
@@ -125,7 +124,7 @@ export default function Homepage({ setIsHome }) {
             </span>
             :{" "}
           </label>
-          <Searchbar placeholder={"e.g. COMP110, WB, ECON"} data={classData}/>
+          <Searchbar placeholder={"e.g. COMP110, WB, ECON"} data={classData} />
         </div>
         <div className="trendingClasses" style={styles.trendingClasses}>
           <p>
@@ -155,7 +154,7 @@ export default function Homepage({ setIsHome }) {
             {showAllCatalogCards ? "View less" : "View more"}
           </button>
         </div>
-      </div>      
+      </div>
     </div>
   );
 }

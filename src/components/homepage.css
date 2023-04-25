@@ -13,6 +13,12 @@
   #toggle-btn {
     margin: 0 auto 0;
     display: block;
+    cursor: pointer;
+  }
+
+  #toggle-btn:hover {
+    background-color: #5C8DA0;
+    color: white;
   }
 
   .trendingClasses p {

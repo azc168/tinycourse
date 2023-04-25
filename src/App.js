@@ -4,28 +4,19 @@ import CreatePost from "./components/CreatePost";
 import Login from "./components/Login";
 import DepartmentPage from "./components/DepartmentPage";
 import ClassPage from "./components/ClassPage";
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import React, { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  const [isHome, setIsHome] = useState(true);
-
-  // const button = {
-  //   background: "none!important",
-  //   border: "none",
-  //   padding: "0!important",
-  //   /*optional*/
-  //   fontFamily:
-  //     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  //   fontSize: "16px",
-  //   color: "#FFFFFF",
-  //   textDecoration: "none",
-  //   cursor: "pointer",
-  //   backgroundColor: "#7BAFD4",
-  // };
 
   const linkStyle = {
     color: "#FFFFFF",
@@ -84,33 +75,34 @@ function App() {
           }}
         >
           <div className="linkBackground" style={linkBackground}>
-            {!isHome ? (
-              <Link to="/" style={linkStyle} className="linkBackground">
-                {" "}
-                Back to Home
-              </Link>
-            ) : (
-              <Link to="/createpost" style={linkStyle} className="linkBackground">
-                {" "}
-                Review a Class{" "}
-              </Link>
-            )}
+            <Link to="/createpost" style={linkStyle} className="linkBackground">
+              {" "}
+              Review a Class{" "}
+            </Link>
           </div>
           <div className="tinyCourse" style={tinyCourseStyle}>
             <Link to="/" style={tinyCourseLink}>
               {" "}
               tinyCourse{" "}
             </Link>
-            <img src="https://i.postimg.cc/Gt1nV6WZ/Screen-Shot-2023-04-11-at-11-16-25-PM.png" alt='' style={imageStyle}/>
+            <img
+              src="https://i.postimg.cc/Gt1nV6WZ/Screen-Shot-2023-04-11-at-11-16-25-PM.png"
+              alt=""
+              style={imageStyle}
+            />
           </div>
-          <div className="linkBackground" style={linkBackground} >
+          <div className="linkBackground" style={linkBackground}>
             {!isAuth ? (
               <Link to="/login" style={linkStyle} className="linkBackground">
                 {" "}
                 Log In{" "}
               </Link>
             ) : (
-              <Link onClick={signUserOut} style={linkStyle} className="linkBackground">
+              <Link
+                onClick={signUserOut}
+                style={linkStyle}
+                className="linkBackground"
+              >
                 {" "}
                 Log Out
               </Link>
@@ -119,20 +111,28 @@ function App() {
         </nav>
       </div>
       <Routes>
-        <Route path="/" element={<Homepage setIsHome={setIsHome} />} />
+        <Route path="/" element={<Homepage />} />
         <Route
           path="/createpost"
           element={
             isAuth ? (
-              <CreatePost setIsHome={setIsHome} isAuth={isAuth}/>
+              <CreatePost isAuth={isAuth} />
             ) : (
               <Navigate to="/login" replace />
             )
           }
         />
         <Route exact path="/login" element={<Login setIsAuth={setIsAuth} />} />
-        <Route exact path="/department/:department" element={<DepartmentPage />} />
-        <Route exact path="/department/:department/:courseNum/reviews" element={<ClassPage />} />
+        <Route
+          exact
+          path="/department/:department"
+          element={<DepartmentPage />}
+        />
+        <Route
+          exact
+          path="/department/:department/:courseNum/reviews"
+          element={<ClassPage />}
+        />
       </Routes>
     </Router>
   );
