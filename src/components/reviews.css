@@ -1,83 +1,112 @@
 p {
-    font-size: 14px;
+  font-size: 14px;
 }
 .reviews {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .review {
-    background-color: #7BAFD4;
-    color: #000000;
-    padding: 10px;
-    margin: 10px;
-    width: 45%;
-    border-radius: 10px;
-  }
-  
-  .reviewHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .title {
-    flex: 1;
-    font-weight: 300; /* set the title font weight to 300 (thin) */
-  }
-  
-  .title h3 {
-    margin: 0;
-    color: #000000;
-  }
-  
-  .title p {
-    margin-top: 5px;
-    color: #000000;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  button.flagLink {
-    text-decoration: none;
-    cursor: pointer;
-    background-color: #7BAFD4;
-    background: none!important;
-    border: none;
-  }
-  
-  h4 {
-    margin: 0;
-  }
-  h5 {
-    color: #FFFFFF; /* set the author text to gray */
-    margin: 5px 0px;
-  }
-  
-  .reviewText {
-    color: #000000;
-    font-weight: 300; /* set the review text font weight to 300 (thin) */
-  }
+.review {
+  background-color: #7bafd4;
+  color: #000000;
+  padding: 10px;
+  margin: 10px;
+  width: 45%;
+  border-radius: 10px;
+}
 
-  .reviewText p {
-    margin: 5px 10px;
-  }
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .flagLink {
-    float: right;
-    margin-top: 5px;
-  }
+.title {
+  flex: 1;
+  font-weight: 300; /* set the title font weight to 300 (thin) */
+}
 
-  .flagLink:hover {
-    cursor: pointer;
-  }
-  
-  .flagLink:hover::after {
-    content: "Report this review"; /* add text on hover */
-    display: inline-block;
-    position: absolute; /* set position to absolute for positioning of the text box */
-    margin-left: 4px;
-    padding: 2px; /* add some padding to the box */
-    background-color: #f1f1f1; /* set the background color of the box */
-    border: 1px solid #ccc; /* add a border to the box */
-    border-radius: 5px; /* add some border radius to the box */
-    font-size: 12px; /* set the font size of the box */
-  }
+.title h3 {
+  margin: 0;
+  color: #000000;
+}
+
+.title p {
+  margin-top: 5px;
+  color: #000000;
+}
+
+.noReviews {
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+  margin: 2rem;
+  padding: 1.5rem;
+  border: 2px solid #7BAFD4;
+
+}
+
+.reviewButton {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #7BAFD4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.reviewButton:hover {
+  background-color: #5C8DA0;
+}
+.noReviews h3 {
+  margin-bottom: 20px;
+  font-weight: 350;
+  font-size: 17px;
+}
+
+button.flagLink {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #7bafd4;
+  background: none !important;
+  border: none;
+}
+
+h4 {
+  margin: 0;
+}
+h5 {
+  color: #ffffff; /* set the author text to gray */
+  margin: 5px 0px;
+}
+
+.reviewText {
+  color: #000000;
+  font-weight: 300; /* set the review text font weight to 300 (thin) */
+}
+
+.reviewText p {
+  margin: 5px 10px;
+}
+
+.flagLink {
+  float: right;
+  margin-top: 5px;
+}
+
+.flagLink:hover {
+  cursor: pointer;
+}
+
+.flagLink:hover::after {
+  content: "Report this review"; /* add text on hover */
+  display: inline-block;
+  position: absolute; /* set position to absolute for positioning of the text box */
+  margin-left: 4px;
+  padding: 2px; /* add some padding to the box */
+  background-color: #f1f1f1; /* set the background color of the box */
+  border: 1px solid #ccc; /* add a border to the box */
+  border-radius: 5px; /* add some border radius to the box */
+  font-size: 12px; /* set the font size of the box */
+}

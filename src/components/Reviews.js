@@ -3,6 +3,7 @@ import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { Link, useParams } from "react-router-dom";
 
 function handleFlag(id) {
   var input = window.prompt(`Please let us know why you flagged this review:`);
@@ -13,10 +14,17 @@ function handleFlag(id) {
 
 export default function Reviews(props) {
   const [reviewLists, setReviewList] = useState([]);
-  const reviewsCollectionRef = collection(db, "reviews");
-  const { courseDep, courseNum } = props;
+  const [noReviewsFound, setNoReviewsFound] = useState(false);
+  const params = useParams();
+  const { courseDep, courseNum } = {
+    courseDep: params.department.toUpperCase(),
+    courseNum: params.courseNum,
+  };
 
   useEffect(() => {
+    if (courseNum == null) {
+      return;
+    }
     const getReviews = async () => {
       const q = query(
         collection(db, "reviews"),
@@ -34,18 +42,17 @@ export default function Reviews(props) {
         );
       } else {
         console.log("No matching documents found.");
+        setNoReviewsFound(true);
       }
-      //   const data = await getDocs(reviewsCollectionRef);
-      //   setReviewList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getReviews();
-  }, [db, courseDep, courseNum]);
+  }, [courseDep, courseNum]);
 
   return (
     <div className="reviews">
       {reviewLists.map((review) => {
         return (
-          <div className="review">
+          <div className="review" key={review.id}>
             <div className="reviewHeader">
               <div className="title">
                 <button
@@ -71,6 +78,14 @@ export default function Reviews(props) {
           </div>
         );
       })}
+      {noReviewsFound && (
+        <div className="noReviews">
+          <h3>Unfortunately, {courseDep} {courseNum} has no reviews yet.</h3>
+          <Link to="/createpost" className="reviewButton">
+            Be the first to review!
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

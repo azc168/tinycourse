@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Reviews from "./Reviews";
 import CatalogCard from "./CatalogCard";
+import Searchbar from "./Searchbar";
 import "./homepage.css";
 import { aArray, fourtwenny } from "./DataArrays";
 import { bArray } from "./DataArrays";
@@ -14,6 +14,7 @@ import { iArray } from "./DataArrays";
 import { jArray } from "./DataArrays";
 import {oneten, fiveninety} from "./DataArrays";
 import TrendCard from "./TrendCard";
+import classData from "./catalogData.json";
 
 export default function Homepage({ setIsHome }) {
   setIsHome(true);
@@ -43,18 +44,11 @@ export default function Homepage({ setIsHome }) {
       alignItems: "center",
       justifyContent: "center",
     },
-    searchBy: {
-      display: "flex",
-      width: "170px",
-      margin: "auto",
-      alignItems: "center",
-      justifyContent: "center",
-    },
     searchBox: {
       display: "flex",
       border: "2px solid #7BAFD4",
-      width: "480px",
-      height: "28px",
+      width: "820px",
+      height: "50px",
       margin: "auto",
       alignItems: "center",
       justifyContent: "center",
@@ -80,25 +74,16 @@ export default function Homepage({ setIsHome }) {
 
   const [showAllCatalogCards, setShowAllCatalogCards] = useState(false);
   const catalogCards = [
-    <CatalogCard letter="A" departments={aArray} />,
-    <CatalogCard letter="B" departments={bArray} />,
-    <CatalogCard letter="C" departments={cArray} />,
-    <CatalogCard letter="D" departments={dArray} />,
-    <CatalogCard letter="E" departments={eArray} />,
-    <CatalogCard letter="F" departments={fArray} />,
-    <CatalogCard letter="G" departments={gArray} />,
-    <CatalogCard letter="H" departments={hArray} />,
-    <CatalogCard letter="I" departments={iArray} />,
-    <CatalogCard letter="J" departments={jArray} />,
-    // <CatalogCard letter="K" departments={kArray} />,
-    // <CatalogCard letter="L" departments={lArray} />,
-    // <CatalogCard letter="M" departments={mArray} />,
-    // <CatalogCard letter="N" departments={nArray} />,
-    // <CatalogCard letter="P" departments={pArray} />,
-    // <CatalogCard letter="R" departments={rArray} />,
-    // <CatalogCard letter="S" departments={sArray} />,
-    // <CatalogCard letter="T" departments={tArray} />,
-    // <CatalogCard letter="W" departments={wArray} />,
+    <CatalogCard key="A" letter="A" departments={aArray} />,
+    <CatalogCard key="B" letter="B" departments={bArray} />,
+    <CatalogCard key="C" letter="C" departments={cArray} />,
+    <CatalogCard key="D" letter="D" departments={dArray} />,
+    <CatalogCard key="E" letter="E" departments={eArray} />,
+    <CatalogCard key="F" letter="F" departments={fArray} />,
+    <CatalogCard key="G" letter="G" departments={gArray} />,
+    <CatalogCard key="H" letter="H" departments={hArray} />,
+    <CatalogCard key="I" letter="I" departments={iArray} />,
+    <CatalogCard key="J" letter="J" departments={jArray} />,
   ];
 
   const trendCards = [
@@ -139,12 +124,7 @@ export default function Homepage({ setIsHome }) {
             </span>
             :{" "}
           </label>
-          <input
-            type="text"
-            id="searchBy"
-            style={styles.searchBy}
-            placeholder="e.g. COMP110, WB, ECON"
-          ></input>
+          <Searchbar placeholder={"e.g. COMP110, WB, ECON"} data={classData}/>
         </div>
         <div className="trendingClasses" style={styles.trendingClasses}>
           <p>
@@ -152,6 +132,9 @@ export default function Homepage({ setIsHome }) {
             <span className="blueWord" style={styles.blueWord}>
               trending classes
             </span>
+            <span className="fireEmoji">&#x1F525;</span>
+            <span className="fireEmoji">&#x1F525;</span>
+            <span className="fireEmoji">&#x1F525;</span>
           </p>
           <div className="trendingContainer" style={styles.trendingContainer}>
             {trendCards}

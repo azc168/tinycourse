@@ -3,6 +3,8 @@ import "./createpost.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faBook } from "@fortawesome/free-solid-svg-icons";
 
 export default function CreatePost({ setIsHome, isAuth }) {
   setIsHome(false);
@@ -12,9 +14,11 @@ export default function CreatePost({ setIsHome, isAuth }) {
   const [attendance, setAttendance] = useState("Yes");
   const [semester, setSemester] = useState("Fall");
   const [title, setTitle] = useState("");
-  const [rate, setRate] = useState("4/5");
-  const [workload, setWorkload] = useState("3/5");
-  const [difficulty, setDifficulty] = useState("5/5");
+  const [rate, setRating] = useState("");
+  const [rhover, setRHover] = useState(null);
+  const [whover, setWHover] = useState(null);
+  const [workload, setWorkload] = useState("");
+  const [difficulty, setDifficulty] = useState("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("yes");
 
@@ -71,155 +75,192 @@ export default function CreatePost({ setIsHome, isAuth }) {
     }
   });
 
-  function setRating(rating) {
-    const stars = document.querySelectorAll(".star");
-    stars.forEach((star, index) => {
-      if (index < rating) {
-        star.classList.add("selected");
-      } else {
-        star.classList.remove("selected");
-      }
-    });
-  }
-  function rateProduct(rating) {
-    const squares = document.querySelectorAll(".square");
-    squares.forEach((square, index) => {
-      if (index < rating) {
-        square.classList.add("selected");
-      } else {
-        square.classList.remove("selected");
-      }
-    });
-  }
   return (
     <div className="createReviewPage">
       <div className="reviewContainer">
         <h2> Create a Review</h2>
       </div>
       <div className="top-container">
-        <div className="department">
-          <label> Select a Department<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <select
-            id="department-dropdown"
-            onChange={(event) => {
-              setDepartment(event.target.value);
-            }}
-          >
-            <option value="COMP">COMP</option>
-            <option value="BIOL">BIOL</option>
-            <option value="ECON">ECON</option>
-          </select>
-        </div>
-        <div className="course">
-          <label> Course Number<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <input
-            placeholder="ex: 110"
-            onChange={(event) => {
-              setCourse(event.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="instructor">
-          <label> Instructor Name<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <input
-            placeholder="ex: Kris Jordan"
-            onChange={(event) => {
-              setInstructor(event.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="attendance">
-          <label> Attendance Required<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <select
-            id="attendance-dropdown"
-            onChange={(event) => {
-              setAttendance(event.target.value);
-            }}
-          >
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div className="Semester">
-          <label> Semester Taken<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <select
-            id="semester-dropdown"
-            onChange={(event) => {
-              setSemester(event.target.value);
-            }}
-          >
-            <option value="Fall">Fall</option>
-            <option value="Spring">Spring</option>
-            <option value="Summer">Summer</option>
-          </select>
-        </div>
-        <div className="title">
-          <label> Title of Review<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <input
-            placeholder="ex: Best Class Ever!"
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          ></input>
-        </div>
-        <div className="rating">
-          <label> Rating<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <div className="stars">
-            <span className="star" onClick={() => setRating(1)}>
-              &#9733;
-            </span>
-            <span className="star" onClick={() => setRating(2)}>
-              &#9733;
-            </span>
-            <span className="star" onClick={() => setRating(3)}>
-              &#9733;
-            </span>
-            <span className="star" onClick={() => setRating(4)}>
-              &#9733;
-            </span>
-            <span className="star" onClick={() => setRating(5)}>
-              &#9733;
-            </span>
+        <div className="left-box">
+          <div className="department">
+            <label>
+              {" "}
+              Select a Department
+              <span style={{ color: "red", marginRight: "15px" }}> *</span>
+            </label>
+            <select
+              id="department-dropdown"
+              onChange={(event) => {
+                setDepartment(event.target.value);
+              }}
+            >
+              <option value="COMP">COMP</option>
+              <option value="BIOL">BIOL</option>
+              <option value="ECON">ECON</option>
+            </select>
+          </div>
+          <div className="course">
+            <label>
+              {" "}
+              Course Number
+              <span style={{ color: "red", marginRight: "15px" }}> *</span>
+            </label>
+            <input
+              placeholder="ex: 110"
+              onChange={(event) => {
+                setCourse(event.target.value);
+              }}
+            ></input>
+          </div>
+          <div className="instructor">
+            <label>
+              {" "}
+              Instructor Name
+              <span style={{ color: "red", marginRight: "15px" }}> *</span>
+            </label>
+            <input
+              placeholder="ex: Kris Jordan"
+              onChange={(event) => {
+                setInstructor(event.target.value);
+              }}
+            ></input>
+          </div>
+          <div className="attendance">
+            <label>
+              {" "}
+              Attendance Required
+              <span style={{ color: "red", marginRight: "15px" }}> *</span>
+            </label>
+            <select
+              id="attendance-dropdown"
+              onChange={(event) => {
+                setAttendance(event.target.value);
+              }}
+            >
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div className="Semester">
+            <label>
+              {" "}
+              Semester Taken
+              <span style={{ color: "red", marginRight: "15px" }}> *</span>
+            </label>
+            <select
+              id="semester-dropdown"
+              onChange={(event) => {
+                setSemester(event.target.value);
+              }}
+            >
+              <option value="Fall">Fall</option>
+              <option value="Spring">Spring</option>
+              <option value="Summer">Summer</option>
+            </select>
+          </div>
+          <div className="title">
+            <label>
+              {" "}
+              Title of Review
+              <span style={{ color: "red", marginRight: "15px" }}> *</span>
+            </label>
+            <input
+              placeholder="ex: Best Class Ever!"
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            ></input>
           </div>
         </div>
-        <div className="workload">
-          <label> Workload<span style={{ color: "red" }}> *</span></label>
-          <ul class="squares">
-            <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(1 / 5)}></div>
-            </li>
-            <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(2 / 5)}></div>
-            </li>
-            <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(3 / 5)}></div>
-            </li>
-            <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(4 / 5)}></div>
-            </li>
-            <li class="workload-item">
-              <div class="square" onClick={() => rateProduct(5 / 5)}></div>
-            </li>
-          </ul>
-        </div>
-        <div className="difficulty">
-          <label>Difficulty<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
-          <span class="difficulty-label">1</span>
-          <input
-            type="range"
-            id="rating"
-            name="rating"
-            min="1"
-            max="5"
-            onChange={(event) => {
-              setDifficulty(event.target.value);
-            }}
-          ></input>
-          <span class="difficulty-label">5</span>
+        <div className="right-box">
+          <div className="rating">
+            <label>
+              {" "}
+              Overall Rating<span style={{ color: "red" }}> *</span>
+            </label>
+            <ul class="ratings">
+              {[...Array(5)].map((star, i) => {
+                const ratingValue = i + 1;
+                return (
+                  <label>
+                    <input
+                      type="radio"
+                      name="rating"
+                      value={ratingValue}
+                      onClick={() => setRating(ratingValue)}
+                    />
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      className="rate"
+                      color={
+                        ratingValue <= (rhover || rate) ? "#ffc107" : "#e4e5e9"
+                      }
+                      onMouseEnter={() => setRHover(ratingValue)}
+                      onMouseLeave={() => setRHover(null)}
+                    />
+                  </label>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="workload">
+            <label>
+              {" "}
+              Workload<span style={{ color: "red" }}> *</span>
+            </label>
+            <ul class="books">
+              {[...Array(5)].map((star, i) => {
+                const ratingValue = i + 1;
+                return (
+                  <label>
+                    <input
+                      type="radio"
+                      name="workload"
+                      value={ratingValue}
+                      onClick={() => setWorkload(ratingValue)}
+                    />
+                    <FontAwesomeIcon
+                      icon={faBook}
+                      className="book"
+                      color={
+                        ratingValue <= (whover || workload)
+                          ? "#5c8da0"
+                          : "#e4e5e9"
+                      }
+                      onMouseEnter={() => setWHover(ratingValue)}
+                      onMouseLeave={() => setWHover(null)}
+                    />
+                  </label>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="difficulty">
+            <label>
+              Difficulty
+              <span style={{ color: "red", marginRight: "15px" }}> *</span>
+            </label>
+            <span class="difficulty-label">1</span>
+            <input
+              type="range"
+              id="rating"
+              name="rating"
+              min="1"
+              max="5"
+              onChange={(event) => {
+                setDifficulty(event.target.value);
+              }}
+            ></input>
+            <span class="difficulty-label">5</span>
+          </div>
         </div>
       </div>
+
       <div className="description-container">
-        <label>Description<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
+        <label>
+          Description
+          <span style={{ color: "red", marginRight: "15px" }}> *</span>
+        </label>
         <br></br>
         <br></br>
         <textarea
@@ -230,7 +271,10 @@ export default function CreatePost({ setIsHome, isAuth }) {
         ></textarea>
       </div>
       <div className="bottom-container">
-        <label>Display my name on this review<span style={{ color: "red", marginRight: "15px" }}> *</span></label>
+        <label>
+          Display my name on this review
+          <span style={{ color: "red", marginRight: "15px" }}> *</span>
+        </label>
         <select
           id="attendance-dropdown"
           onChange={(event) => {

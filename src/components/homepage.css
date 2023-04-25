@@ -20,3 +20,9 @@
     margin-top: 10px;
   }
   
+  .fireEmoji {
+    display: inline-block;
+    margin-left: 3px;
+    font-size: 13px;
+  }
+  
