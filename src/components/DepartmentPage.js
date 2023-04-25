@@ -71,7 +71,7 @@ export default function DepartmentPage() {
         })
       );
     });
-  }, [department]);
+  }, [department,departmentCourses]);
 
   const filterSearch = () => {};
 
