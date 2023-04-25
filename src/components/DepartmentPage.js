@@ -32,17 +32,23 @@ export default function DepartmentPage() {
   
   useEffect(() => {
 
-    console.log(sortValue);
     if (sortValue === "high-low-course-num") {
       departmentCourses.sort(function(a, b){return b.Number - a.Number});
     } else if (sortValue === "low-high-course-num") {
       departmentCourses.sort(function(a, b){return a.Number - b.Number});
     } else if (sortValue === "high-low-rating") {
-      departmentCourses.sort(function(a, b){return a.avgRating - b.avgRating});
-      console.log();
+      departmentCourses.sort(function(a, b){return averageRatings[b.Number]['0'] - averageRatings[a.Number]['0']});
     } else if (sortValue === "low-high-rating") {
+      departmentCourses.sort(function(a, b){return averageRatings[a.Number]['0'] - averageRatings[b.Number]['0']});
+    } else if (sortValue === "high-low-workload") {
+      departmentCourses.sort(function(a, b){return averageRatings[b.Number]['2'] - averageRatings[a.Number]['2']});
+    } else if (sortValue === "low-high-workload") {
+      departmentCourses.sort(function(a, b){return averageRatings[a.Number]['2'] - averageRatings[b.Number]['2']});
+    } else if (sortValue === "high-low-difficulty") {
+      departmentCourses.sort(function(a, b){return averageRatings[b.Number]['1'] - averageRatings[a.Number]['1']});
+    } else if (sortValue === "low-high-difficulty") {
+      departmentCourses.sort(function(a, b){return averageRatings[a.Number]['1'] - averageRatings[b.Number]['1']});
     }
-
     forceUpdate();
 
     //console.log(genValue);
@@ -51,13 +57,16 @@ export default function DepartmentPage() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortValue, genValue]);
-  
-
-  // if i filter the department courses, then when i map them they will already be in order
 
   const [avgRating, setAvgRating] = useState([]);
   const [avgDifficulty, setAvgDifficulty] = useState([]);
   const [avgWorkload, setAvgWorkload] = useState([]);
+  const [courseNum, setCourseNum] = useState([]);
+
+  var averageRatings = {};
+  for (var i = 0; i < courseNum.length; i++) {
+    averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
+  }
 
 
   const getAverages = async (department, courseNum) => {
@@ -80,8 +89,8 @@ export default function DepartmentPage() {
     const averageRating = numDocs > 0 ? totalRating / numDocs : null;
     const averageDifficulty = numDocs > 0 ? totalDifficulty / numDocs : null;
     const averageWorkload = numDocs > 0 ? totalWorkload / numDocs : null;
-    //console.log("total rating:",totalRating, "total difficult", totalDifficulty);
-    return [averageRating, averageDifficulty, averageWorkload];
+    const courseNumber = courseNum;
+    return [averageRating, averageDifficulty, averageWorkload, courseNumber];
   };
 
   useEffect(() => {
@@ -102,6 +111,11 @@ export default function DepartmentPage() {
         setAvgWorkload(
           averages.map((avg) => {
             return avg[2];
+          })
+        );
+        setCourseNum(
+          averages.map((avg) => {
+            return avg[3];
           })
         );
       });
@@ -126,6 +140,8 @@ export default function DepartmentPage() {
           <option value="low-high-rating">Low-high rating</option>
           <option value="high-low-workload">High-low workload</option>
           <option value="low-high-workload">Low-high workload</option>
+          <option value="high-low-difficulty">High-low difficulty</option>
+          <option value="low-high-difficulty">Low-high difficulty</option>
         </select>
         <label id="genId">
             {" "}
@@ -153,9 +169,9 @@ export default function DepartmentPage() {
                 </div>
               </div>
               <div className="class-name">{course.Name}</div>
-              <div className="class-rating"> Rating: {avgRating[index]} / 5</div>
-              <div className="class-workload"> Workload: {avgWorkload[index]} / 5</div>
-              <div className="class-difficulty"> Difficulty: {avgDifficulty[index]} / 5</div>
+              <div className="class-rating"> Rating: {Math.round(averageRatings[course.Number]['0'])} / 5</div>
+              <div className="class-workload"> Workload: {Math.round(averageRatings[course.Number]['1'])} / 5</div>
+              <div className="class-difficulty"> Difficulty: {Math.round(averageRatings[course.Number]['2'])} / 5</div>
               <div>
                 {Array.isArray(course.Tags) && course.Tags.length > 0 && (
                   <div>
