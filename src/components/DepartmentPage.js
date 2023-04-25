@@ -20,6 +20,7 @@ export default function DepartmentPage() {
   };*/
 
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   let departmentCourses = [];
   switch (department) {
     case "COMP":
