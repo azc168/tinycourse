@@ -30,6 +30,30 @@
     "Tags": "PL"
   },
   {
+    "Department": "Biol",
+    "Number": "202",
+    "Name": "Molecular Biology and Genetics",
+    "Tags": "PL"
+  },
+  {
+    "Department": "Biol",
+    "Number": "226",
+    "Name": "Mathematical Methods for Quantitative Biology",
+    "Tags": "QI"
+  },
+  {
+    "Department": "Biol",
+    "Number": "251",
+    "Name": "Introduction to Human Anatomy and Physiology",
+    "Tags": "PX"
+  },
+  {
+    "Department": "Biol",
+    "Number": "274",
+    "Name": "Plant Diversity",
+    "Tags": ["PX", "EE"]
+  },
+  {
     "Department": "Comp",
     "Number": "110",
     "Name": "Introduction to Programming and Data Science",
