@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./trendCard.css";
 
 export default function TrendCard({ title, descs }) {
