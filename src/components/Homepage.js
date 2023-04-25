@@ -88,8 +88,9 @@ export default function Homepage({ setIsHome }) {
 
   const trendCards = [
     <TrendCard title="Comp 110 | Intro to Computer Science" descs={oneten} />,
-    <TrendCard title="UI/UX Design" descs={fiveninety} />,
-    <TrendCard title="Advanced Webpage Design" descs={fourtwenny} />,
+    <TrendCard title="Comp 590 | Design and Implementation of User Interfaces
+    " descs={fiveninety} />,
+    <TrendCard title="Comp 426 | Modern Web Programming" descs={fourtwenny} />,
   ]
 
   const topCatalogCards = catalogCards.slice(0, 5);
