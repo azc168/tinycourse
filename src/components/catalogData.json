@@ -7,18 +7,6 @@
   },
   {
     "Department": "Biol",
-    "Number": "101L",
-    "Name": "Introductory Biology Laboratory",
-    "Tags": "N/A"
-  },
-  {
-    "Department": "Biol",
-    "Number": "102L",
-    "Name": "Introductory Biology Laboratory with Research",
-    "Tags": ["CI", "EE"]
-  },
-  {
-    "Department": "Biol",
     "Number": "104",
     "Name": "Biodiversity",
     "Tags": "N/A"

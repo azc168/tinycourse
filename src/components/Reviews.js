@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faFlag, faStar, faStarHalfAlt, faBook, faSquare } from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
 
 function handleFlag(id) {
@@ -10,6 +10,70 @@ function handleFlag(id) {
   if (input != null) {
     window.alert(`Thanks! This post will be reviewed by an admin.`);
   }
+}
+
+function renderStarRating(rate) {
+  const fullStars = Math.floor(rate);
+  const hasHalfStar = rate - fullStars >= 0.5;
+  
+  return (
+    <div className="starRating">
+      {[...Array(5)].map((_, index) => {
+        if (index < fullStars) {
+          // Render a shaded star
+          return <FontAwesomeIcon key={index} icon={faStar} className="checkedStar" />;
+        } else if (index === fullStars && hasHalfStar) {
+          // Render a half shaded star
+          return <FontAwesomeIcon key={index} icon={faStarHalfAlt} className="checkedStar" />;
+        } else {
+          // Render an empty star
+          return <FontAwesomeIcon key={index} icon={faStar} className="uncheckedStar" />;
+        }
+      })}
+    </div>
+  );
+}
+
+function renderWorkloadRating(workload) {
+  const fullStars = Math.floor(workload);
+  const hasHalfStar = workload - fullStars >= 0.5;
+  
+  return (
+    <div className="workloadRating">
+      {[...Array(5)].map((_, index) => {
+        if (index < fullStars) {
+          // Render a shaded star
+          return <FontAwesomeIcon key={index} icon={faBook} className="checkedBook" />;
+        } else if (index === fullStars && hasHalfStar) {
+          // Render a half shaded star
+          return <FontAwesomeIcon key={index} icon={faBook} className="checkedBook" />;
+        } else {
+          // Render an empty star
+          return <FontAwesomeIcon key={index} icon={faBook} className="uncheckedBook" />;
+        }
+      })}
+    </div>
+  );
+  
+}
+
+function renderDifficultyRating(difficulty) {
+  const fullStars = Math.floor(difficulty);
+  
+  return (
+    <div className="difficultyRating">
+      {[...Array(5)].map((_, index) => {
+        if (index < fullStars) {
+          // Render a shaded star
+          return <FontAwesomeIcon key={index} icon={faSquare} className="checkedSquare" />;
+        } else {
+          // Render an empty star
+          return <FontAwesomeIcon key={index} icon={faSquare} className="uncheckedSquare" />;
+        }
+      })}
+    </div>
+  );
+  
 }
 
 export default function Reviews(props) {
@@ -63,9 +127,9 @@ export default function Reviews(props) {
                 </button>
                 <h3>{review.title}</h3>
                 <h5>Posted by: {review.author.name}</h5>
-                <p>Rating: {review.rate}</p>
-                <p>Workload: {review.workload}</p>
-                <p>Difficulty: {review.difficulty}</p>
+                <p>Overall Rating: {renderStarRating(review.rate)}</p>
+                <p>Workload: {renderWorkloadRating(review.workload)}</p>
+                <p>Difficulty: {renderDifficultyRating(review.difficulty)}</p>
                 <p>Professor: {review.instructor}</p>
                 <p>Semester: {review.semester}</p>
               </div>
