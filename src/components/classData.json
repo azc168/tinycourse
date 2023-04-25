@@ -6,16 +6,6 @@
             "Tags": "PX"
         },
         {
-            "Number": "101L",
-            "Name": "Introductory Biology Laboratory",
-            "Tags": "N/A"
-        },
-        {
-            "Number" : "102L",
-            "Name" : "Introductory Biology Laboratory with Research",
-            "Tags": ["CI", "EE"]
-        },
-        {
             "Number" : "104",
             "Name" : "Biodiversity",
             "Tags": "N/A"
@@ -34,7 +24,28 @@
             "Number" : "150",
             "Name" : "The Creativity of Science, or Scientific Thinking in Biology",
             "Tags": "PL"
+        },
+        {
+            "Number": "202",
+            "Name": "Molecular Biology and Genetics",
+            "Tags": "PL"
+        },
+        {
+            "Number": "226",
+            "Name": "Mathematical Methods for Quantitative Biology",
+            "Tags": "QI"
+        },
+        {
+            "Number": "251",
+            "Name": "Introduction to Human Anatomy and Physiology",
+            "Tags": "PX"
+        },
+        {
+            "Number": "274",
+            "Name": "Plant Diversity",
+            "Tags": ["PX", "EE"]
         }
+        
     ],
     "Comp": [
         {
