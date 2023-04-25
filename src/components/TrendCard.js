@@ -2,18 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./trendCard.css";
 
-export default function TrendCard({ letter, departments }) {
+export default function TrendCard({ title, descs }) {
   return (
-    <div className="card">
-      <header>{letter}</header>
+    <div className="trendCard">
+      <header>{title}</header>
       <br />
-      {departments.map((department, index) => (
-        <div key={index}>
-          <Link to={`/department/${department}`} className="department-link">
-            {department}
-          </Link>
+        <div>
+          {descs}
         </div>
-      ))}
     </div>
   );
 }

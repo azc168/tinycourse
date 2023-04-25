@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Reviews from "./Reviews";
 import CatalogCard from "./CatalogCard";
 import "./homepage.css";
-import { aArray } from "./DataArrays";
+import { aArray, fourtwenny } from "./DataArrays";
 import { bArray } from "./DataArrays";
 import { cArray } from "./DataArrays";
 import { dArray } from "./DataArrays";
@@ -12,6 +12,7 @@ import { gArray } from "./DataArrays";
 import { hArray } from "./DataArrays";
 import { iArray } from "./DataArrays";
 import { jArray } from "./DataArrays";
+import {oneten, fiveninety} from "./DataArrays";
 import TrendCard from "./TrendCard";
 
 export default function Homepage({ setIsHome }) {
@@ -100,6 +101,12 @@ export default function Homepage({ setIsHome }) {
     // <CatalogCard letter="W" departments={wArray} />,
   ];
 
+  const trendCards = [
+    <TrendCard title="Comp 110 | Intro to Computer Science" descs={oneten} />,
+    <TrendCard title="UI/UX Design" descs={fiveninety} />,
+    <TrendCard title="Advanced Webpage Design" descs={fourtwenny} />,
+  ]
+
   const topCatalogCards = catalogCards.slice(0, 5);
 
   const toggleCatalogCards = () => {
@@ -147,7 +154,7 @@ export default function Homepage({ setIsHome }) {
             </span>
           </p>
           <div className="trendingContainer" style={styles.trendingContainer}>
-            {catalogCards}
+            {trendCards}
           </div>
         </div>
         <div className="courseCatalog" style={styles.courseCatalog}>

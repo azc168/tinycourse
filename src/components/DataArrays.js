@@ -71,6 +71,15 @@ export const courseArrays = {
   ],
 };
 
+
+
+export const oneten = "The nature of computers, their capabilities, and limitations. How computers work, popular applications, and problem-solving skills.";
+
+export const fiveninety = "Comp 590 is very cool!";
+
+export const fourtwenny = "Comp 426 is so cool!"
+
+
 export default function DataArrays() {
   return null;
 }
