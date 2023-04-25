@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faBook } from "@fortawesome/free-solid-svg-icons";
 
-export default function CreatePost({ setIsHome, isAuth }) {
-  setIsHome(false);
+export default function CreatePost({isAuth }) {
   const [department, setDepartment] = useState("COMP");
   const [course, setCourse] = useState("");
   const [instructor, setInstructor] = useState("");
@@ -290,7 +289,7 @@ export default function CreatePost({ setIsHome, isAuth }) {
           Publish
         </button>
         <button id="save" onClick={backHome}>
-          Save
+          Go Back
         </button>
       </div>
     </div>

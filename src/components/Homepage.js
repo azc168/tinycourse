@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CatalogCard from "./CatalogCard";
 import Searchbar from "./Searchbar";
 import "./homepage.css";
-import { aArray } from "./DataArrays";
+import { aArray, fourtwenny } from "./DataArrays";
 import { bArray } from "./DataArrays";
 import { cArray } from "./DataArrays";
 import { dArray } from "./DataArrays";
@@ -12,10 +12,11 @@ import { gArray } from "./DataArrays";
 import { hArray } from "./DataArrays";
 import { iArray } from "./DataArrays";
 import { jArray } from "./DataArrays";
+import {oneten, fiveninety} from "./DataArrays";
+import TrendCard from "./TrendCard";
 import classData from "./catalogData.json";
 
-export default function Homepage({ setIsHome }) {
-  setIsHome(true);
+export default function Homepage() {
   const styles = {
     blurb: {
       textAlign: "center",
@@ -53,15 +54,21 @@ export default function Homepage({ setIsHome }) {
       marginBottom: "20px",
     },
     trendingClasses: {
-      display: "flex",
       border: "2px solid #7BAFD4",
-      minHeight: "200px",
+      height: "250px",
+      maxWidth: "820px",
       margin: "auto",
       alignItems: "center",
       justifyContent: "center",
       marginBottom: "20px",
-      maxWidth: "820px",
+      paddingBottom: "20px",
     },
+    trendingContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
+      marginTop: "1rem"
+    }
   };
 
   const [showAllCatalogCards, setShowAllCatalogCards] = useState(false);
@@ -77,6 +84,13 @@ export default function Homepage({ setIsHome }) {
     <CatalogCard key="I" letter="I" departments={iArray} />,
     <CatalogCard key="J" letter="J" departments={jArray} />,
   ];
+
+  const trendCards = [
+    <TrendCard title="Comp 110 | Intro to Computer Science" descs={oneten} />,
+    <TrendCard title="Comp 590 | Design and Implementation of User Interfaces
+    " descs={fiveninety} />,
+    <TrendCard title="Comp 426 | Modern Web Programming" descs={fourtwenny} />,
+  ]
 
   const topCatalogCards = catalogCards.slice(0, 5);
 
@@ -110,7 +124,7 @@ export default function Homepage({ setIsHome }) {
             </span>
             :{" "}
           </label>
-          <Searchbar placeholder={"e.g. COMP110, WB, ECON"} data={classData}/>
+          <Searchbar placeholder={"e.g. COMP110, WB, ECON"} data={classData} />
         </div>
         <div className="trendingClasses" style={styles.trendingClasses}>
           <p>
@@ -122,6 +136,9 @@ export default function Homepage({ setIsHome }) {
             <span className="fireEmoji">&#x1F525;</span>
             <span className="fireEmoji">&#x1F525;</span>
           </p>
+          <div className="trendingContainer" style={styles.trendingContainer}>
+            {trendCards}
+          </div>
         </div>
         <div className="courseCatalog" style={styles.courseCatalog}>
           <p>
@@ -137,7 +154,7 @@ export default function Homepage({ setIsHome }) {
             {showAllCatalogCards ? "View less" : "View more"}
           </button>
         </div>
-      </div>      
+      </div>
     </div>
   );
 }

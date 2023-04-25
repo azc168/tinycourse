@@ -4,12 +4,12 @@ import { db } from "../firebase-config";
 import { Link, useParams } from "react-router-dom";
 import classData from "./classData.json";
 import "./departmentPage.css";
-// import { getDocs, collection, query, where } from "firebase/firestore";
 
 export default function DepartmentPage() {
   const [sortValue, setSortValue] = useState("");
   const [genValue, setGenValue] = useState("Any");
   const params = useParams();
+  const { department } = useParams();
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
   /*const { courseDep, courseNum, rating, workload } = {
@@ -21,7 +21,7 @@ export default function DepartmentPage() {
 
   
   let departmentCourses = [];
-  switch (params.department) {
+  switch (department) {
     case "COMP":
       departmentCourses = classData.Comp;
       break;
@@ -57,6 +57,58 @@ export default function DepartmentPage() {
 
   // if i filter the department courses, then when i map them they will already be in order
 
+  const [avgRating, setAvgRating] = useState([]);
+  const [avgDifficulty, setAvgDifficulty] = useState([]);
+  const [avgWorkload, setAvgWorkload] = useState([]);
+
+
+  const getAverages = async (department, courseNum) => {
+    const courseRef = collection(db, "reviews");
+    const courseQuery = query(
+      courseRef,
+      where("department", "==", department),
+      where("course", "==", courseNum)
+    );
+    const courseSnapshot = await getDocs(courseQuery);
+    let totalRating = 0;
+    let totalDifficulty = 0;
+    let totalWorkload = 0;
+    courseSnapshot.forEach((doc) => {
+      totalRating += Number(doc.data().rate);
+      totalDifficulty += Number(doc.data().difficulty);
+      totalWorkload += Number(doc.data().workload);
+    });
+    const numDocs = courseSnapshot.size;
+    const averageRating = numDocs > 0 ? totalRating / numDocs : null;
+    const averageDifficulty = numDocs > 0 ? totalDifficulty / numDocs : null;
+    const averageWorkload = numDocs > 0 ? totalWorkload / numDocs : null;
+    //console.log("total rating:",totalRating, "total difficult", totalDifficulty);
+    return [averageRating, averageDifficulty, averageWorkload];
+  };
+
+  useEffect(() => {
+    Promise.all(
+      departmentCourses.map((course) => getAverages(department, course.Number))
+    ).then((averages) => {
+      setAvgRating(
+        averages.map((avg) => {
+          return avg[0];
+        })
+      );
+      setAvgDifficulty(
+        averages.map((avg) => {
+          return avg[1];
+        })
+      );
+      setAvgWorkload(
+        averages.map((avg) => {
+          return avg[2];
+        })
+      );
+    });
+  }, [department,departmentCourses]);
+
+  const filterSearch = () => {};
 
   return (
     <div className="page-body">
@@ -85,7 +137,9 @@ export default function DepartmentPage() {
           <option value="PX">PX</option>
           <option value="QR">QR</option>
         </select>
-        <button className="filter-search">Find me classes!</button>
+        <button className="filter-search" onClick={filterSearch}>
+          Find me classes!
+        </button>
       </div>
       <div className="class-card-container">
         {departmentCourses.length > 0 ? (
@@ -97,9 +151,9 @@ export default function DepartmentPage() {
                 </div>
               </div>
               <div className="class-name">{course.Name}</div>
-              <div className="class-rating"> Rating:</div>
-              <div className="class-workload"> Workload:</div>
-              <div className="class-difficulty"> Difficulty:</div>
+              <div className="class-rating"> Rating: {avgRating[index]} / 5</div>
+              <div className="class-workload"> Workload: {avgWorkload[index]} / 5</div>
+              <div className="class-difficulty"> Difficulty: {avgDifficulty[index]} / 5</div>
               <div>
                 {Array.isArray(course.Tags) && course.Tags.length > 0 && (
                   <div>
@@ -111,11 +165,12 @@ export default function DepartmentPage() {
                   </div>
                 )}
                 {typeof course.Tags === "string" && course.Tags !== "N/A" && (
-                  <div className="class-gen-ed">{course.Tags}</div>
+                  <div className="class-gen-ed">
+                  <p>{course.Tags}</p></div>
                 )}
               </div>
               <div className="class-review-link">
-                <Link to={`/department/${params.department}/${course.Number}/reviews`} state={{courseDep:params.department,courseNum:course.Number}}>
+                <Link to={`/department/${department}/${course.Number}/reviews`}>
                   <u>Read more reviews</u>
                 </Link>
               </div>
