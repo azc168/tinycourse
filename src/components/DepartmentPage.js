@@ -8,16 +8,9 @@ import "./departmentPage.css";
 export default function DepartmentPage() {
   const [sortValue, setSortValue] = useState("");
   const [genValue, setGenValue] = useState("Any");
-  const params = useParams();
   const { department } = useParams();
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
-  /*const { courseDep, courseNum, rating, workload } = {
-    courseDep: params.department.toUpperCase(),
-    courseNum: params.courseNum,
-    rating: params.rating,
-    workload: params.workload,
-  };*/
 
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,11 +37,15 @@ export default function DepartmentPage() {
       departmentCourses.sort(function(a, b){return b.Number - a.Number});
     } else if (sortValue === "low-high-course-num") {
       departmentCourses.sort(function(a, b){return a.Number - b.Number});
+    } else if (sortValue === "high-low-rating") {
+      departmentCourses.sort(function(a, b){return a.avgRating - b.avgRating});
+      console.log();
+    } else if (sortValue === "low-high-rating") {
     }
 
     forceUpdate();
 
-    console.log(genValue);
+    //console.log(genValue);
     //console.log(departmentCourses.filter((course) => {return course.Tags === 'PX';}));
     //departmentCourses.filter((course) => course.Tags === 'PX');
 
@@ -88,25 +85,29 @@ export default function DepartmentPage() {
   };
 
   useEffect(() => {
-    Promise.all(
-      departmentCourses.map((course) => getAverages(department, course.Number))
-    ).then((averages) => {
-      setAvgRating(
-        averages.map((avg) => {
-          return avg[0];
-        })
-      );
-      setAvgDifficulty(
-        averages.map((avg) => {
-          return avg[1];
-        })
-      );
-      setAvgWorkload(
-        averages.map((avg) => {
-          return avg[2];
-        })
-      );
-    });
+    if (departmentCourses.length > 0) {
+      Promise.all(
+        departmentCourses.map((course) => getAverages(department, course.Number))
+      ).then((averages) => {
+        setAvgRating(
+          averages.map((avg) => {
+            return avg[0];
+          })
+        );
+        setAvgDifficulty(
+          averages.map((avg) => {
+            return avg[1];
+          })
+        );
+        setAvgWorkload(
+          averages.map((avg) => {
+            return avg[2];
+          })
+        );
+      });
+    }
+    
+    
   }, [department,departmentCourses]);
 
   const filterSearch = () => {};
@@ -148,7 +149,7 @@ export default function DepartmentPage() {
             <div key={index} className="class-card">
               <div className="class-header">
                 <div className="class-department">
-                  {params.department} {course.Number}
+                  {department} {course.Number}
                 </div>
               </div>
               <div className="class-name">{course.Name}</div>
@@ -172,7 +173,7 @@ export default function DepartmentPage() {
               </div>
               <div className="class-review-link">
                 <Link to={`/department/${department}/${course.Number}/reviews`}>
-                  <u>Read more reviews</u>
+                  <u>Read reviews</u>
                 </Link>
               </div>
             </div>
