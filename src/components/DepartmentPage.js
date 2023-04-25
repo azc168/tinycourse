@@ -6,7 +6,7 @@ import classData from "./classData.json";
 import "./departmentPage.css";
 
 export default function DepartmentPage() {
-  const [sortValue, setSortValue] = useState("");
+  const [sortValue, setSortValue] = useState("low-high-course-num");
   const [genValue, setGenValue] = useState("Any");
   const { department } = useParams();
   const [, updateState] = React.useState();
@@ -37,17 +37,17 @@ export default function DepartmentPage() {
     } else if (sortValue === "low-high-course-num") {
       departmentCourses.sort(function(a, b){return a.Number - b.Number});
     } else if (sortValue === "high-low-rating") {
-      departmentCourses.sort(function(a, b){return averageRatings[b.Number]['0'] - averageRatings[a.Number]['0']});
+      departmentCourses.sort(function(a, b){return averageRatings[b.Number] - averageRatings[a.Number]});
     } else if (sortValue === "low-high-rating") {
-      departmentCourses.sort(function(a, b){return averageRatings[a.Number]['0'] - averageRatings[b.Number]['0']});
+      departmentCourses.sort(function(a, b){return averageRatings[a.Number] - averageRatings[b.Number]});
     } else if (sortValue === "high-low-workload") {
-      departmentCourses.sort(function(a, b){return averageRatings[b.Number]['2'] - averageRatings[a.Number]['2']});
+      //departmentCourses.sort(function(a, b){return averageRatings[b.Number]['2'] - averageRatings[a.Number]['2']});
     } else if (sortValue === "low-high-workload") {
-      departmentCourses.sort(function(a, b){return averageRatings[a.Number]['2'] - averageRatings[b.Number]['2']});
+      //departmentCourses.sort(function(a, b){return averageRatings[a.Number]['2'] - averageRatings[b.Number]['2']});
     } else if (sortValue === "high-low-difficulty") {
-      departmentCourses.sort(function(a, b){return averageRatings[b.Number]['1'] - averageRatings[a.Number]['1']});
+      //departmentCourses.sort(function(a, b){return averageRatings[b.Number]['1'] - averageRatings[a.Number]['1']});
     } else if (sortValue === "low-high-difficulty") {
-      departmentCourses.sort(function(a, b){return averageRatings[a.Number]['1'] - averageRatings[b.Number]['1']});
+      //departmentCourses.sort(function(a, b){return averageRatings[a.Number]['1'] - averageRatings[b.Number]['1']});
     }
     forceUpdate();
 
@@ -62,11 +62,7 @@ export default function DepartmentPage() {
   const [avgDifficulty, setAvgDifficulty] = useState([]);
   const [avgWorkload, setAvgWorkload] = useState([]);
   const [courseNum, setCourseNum] = useState([]);
-
-  var averageRatings = {};
-  for (var i = 0; i < courseNum.length; i++) {
-    averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
-  }
+  const [averageRatings, setAverageRatings] = useState({});
 
 
   const getAverages = async (department, courseNum) => {
@@ -118,11 +114,28 @@ export default function DepartmentPage() {
             return avg[3];
           })
         );
+        // need to move setAverageRatings inside this promise
+        for (var i = 0; i < courseNum.length; i++) {
+          averageRatings[courseNum[i]] = avgRating[i];
+          setAverageRatings(averageRatings);
+          // averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
+        }
       });
     }
     
+  }, [averageRatings, avgRating, courseNum, department, departmentCourses]);
+
+  /*useEffect(() => {
+
+      for (var i = 0; i < courseNum.length; i++) {
+        averageRatings[courseNum[i]] = avgRating[i];
+        setAverageRatings(averageRatings);
+        // averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
+      }
     
-  }, [department,departmentCourses]);
+  }, [averageRatings, avgRating, courseNum, departmentCourses]); */
+
+  
 
   const filterSearch = () => {};
 
@@ -169,9 +182,9 @@ export default function DepartmentPage() {
                 </div>
               </div>
               <div className="class-name">{course.Name}</div>
-              <div className="class-rating"> Rating: {Math.round(averageRatings[course.Number]['0'])} / 5</div>
-              <div className="class-workload"> Workload: {Math.round(averageRatings[course.Number]['1'])} / 5</div>
-              <div className="class-difficulty"> Difficulty: {Math.round(averageRatings[course.Number]['2'])} / 5</div>
+              <div className="class-rating"> Rating: {Math.round(averageRatings[course.Number])} / 5</div>
+              <div className="class-workload"> Workload: {Math.round(avgWorkload[index])} / 5</div>
+              <div className="class-difficulty"> Difficulty: {Math.round(avgDifficulty[index])} / 5</div>
               <div>
                 {Array.isArray(course.Tags) && course.Tags.length > 0 && (
                   <div>
