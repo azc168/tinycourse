@@ -141,13 +141,16 @@ export default function TrendCard({ dep, num, department }) {
         <div className="class-ratings">
           <p className="rating">
             Rating:&nbsp;&nbsp;{renderStarRating(courseData.rate)}
+            {courseData.rate}/5
           </p>
           <p className="rating">
             Workload:&nbsp;&nbsp;{renderWorkloadRating(courseData.workload)}
+            {courseData.workload}/5
           </p>
           <p className="rating">
             Difficulty:&nbsp;&nbsp;
             {renderDifficultyRating(courseData.difficulty)}
+            {courseData.difficulty}/5
           </p>
         </div>
       )}

@@ -39,7 +39,7 @@ p {
 
 .title p {
   margin-top: 5px;
-  color: #000000;
+  color: #333333;
 }
 
 .noReviews {
@@ -80,7 +80,7 @@ h4 {
   margin: 0;
 }
 h5 {
-  color: #333333; /* set the author text to gray */
+  color: black;
   margin: 5px 0px;
   font-size: 14px;
 }

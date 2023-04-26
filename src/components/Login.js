@@ -44,7 +44,7 @@ import './login.css';
                 <p style={spacing}>to continue</p>
             </div>
             <div className="message">
-                <p>You must be logged in to review classes!</p>
+                <p>You <u>must</u> be logged in to review a class!</p>
             </div>
             <div className="descriptionCardA" style={cardStyle}>
                 <Card 
