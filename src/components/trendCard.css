@@ -34,14 +34,17 @@ p {
 }
 
 .class-button {
-  margin-top: -8px;  
+  margin-top: -8px;
+}
+
+#go-button {
+  cursor: pointer;
 }
 
 .class-button p {
   margin-left: -2px;
   margin-top: -1px;
 }
-
 
 .rating {
   display: flex;

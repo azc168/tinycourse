@@ -155,7 +155,7 @@ export default function TrendCard({ dep, num, department }) {
         </div>
       )}
       <Link className="class-button" to={`/department/${dep}/${num}/reviews`}>
-        <button>
+        <button id="go-button">
           <p className="button-text">Go to Class</p>
         </button>
       </Link>
