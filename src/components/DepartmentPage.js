@@ -322,7 +322,14 @@ export default function DepartmentPage() {
       )}
       <div className="class-card-container">
         {departmentCourses.length > 0 ? (
-          departmentCourses.map((course, index) => (
+          departmentCourses.filter((course) => {
+            const courseNumber = course.Number;
+            return (
+              averageRatings[courseNumber] > 0 &&
+              averageWorkload[courseNumber] > 0 &&
+              averageDiff[courseNumber] > 0
+            );
+          }).map((course, index) => (
             <div key={index} className="class-card">
               <div className="class-header">
                 <div className="class-department">

@@ -16,10 +16,6 @@
     cursor: pointer;
   }
 
-  #toggle-btn:hover {
-    color: white;
-  }
-
   .trendingClasses p {
     margin-left: 10px;
     margin-top: 10px;

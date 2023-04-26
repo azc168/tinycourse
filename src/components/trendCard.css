@@ -9,7 +9,7 @@ h4 {
   text-align: left;
   width: 200px;
   margin-bottom: 20px;
-  height: 150px;
+  height: 165px;
 }
 
 .department-link:hover {
@@ -34,31 +34,17 @@ p {
 }
 
 .class-button {
-  margin-top: 8px;
-  display: flex;
-  justify-content: center;
-  width: 100px;
-  height: 30px;
-  background-color: #F5F5F5;
-  color: #333;
-  text-align: center;
-  border-radius: 3px;
-  text-decoration: none;
+  margin-top: -8px;  
 }
 
-.button-text {
-  
-}
 .class-button p {
   margin-left: -2px;
-  vertical-align:middle;
+  margin-top: -1px;
 }
 
-.class-button:hover {
-  background-color: #ddd;
-}
 
 .rating {
   display: flex;
   padding-right: 10px;
+  margin-bottom: 15px;
 }

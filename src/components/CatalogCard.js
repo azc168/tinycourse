@@ -7,13 +7,15 @@ export default function CatalogCard({ letter, departments }) {
     <div className="card">
       <header>{letter}</header>
       <br />
-      {departments.map((department, index) => (
-        <div key={index}>
-          <Link to={`/department/${department}`} className="department-link">
-            {department}
-          </Link>
-        </div>
-      ))}
+      <div className="department-list">
+        {departments.map((department, index) => (
+          <div key={index}>
+            <Link to={`/department/${department}`} className="department-link">
+              {department}
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

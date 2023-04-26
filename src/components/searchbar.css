@@ -58,3 +58,15 @@ input:focus {
 #clearBtn {
   cursor: pointer;
 }
+
+.reviewText {
+  max-height: 125px;
+  overflow-y: scroll;
+  scrollbar-width: 1px; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.reviewText::-webkit-scrollbar {
+  display: none; 
+}
+

@@ -139,13 +139,22 @@ export default function TrendCard({ dep, num, department }) {
       </div>
       {courseData && (
         <div className="class-ratings">
-          <p className="rating">Rating:&nbsp;&nbsp;{renderStarRating(courseData.rate)}</p>
-          <p className="rating">Workload:&nbsp;&nbsp;{renderWorkloadRating(courseData.workload)}</p>
-          <p className="rating">Difficulty:&nbsp;&nbsp;{renderDifficultyRating(courseData.difficulty)}</p>
+          <p className="rating">
+            Rating:&nbsp;&nbsp;{renderStarRating(courseData.rate)}
+          </p>
+          <p className="rating">
+            Workload:&nbsp;&nbsp;{renderWorkloadRating(courseData.workload)}
+          </p>
+          <p className="rating">
+            Difficulty:&nbsp;&nbsp;
+            {renderDifficultyRating(courseData.difficulty)}
+          </p>
         </div>
       )}
       <Link className="class-button" to={`/department/${dep}/${num}/reviews`}>
-        <p className="button-text">Go to Class</p>
+        <button>
+          <p className="button-text">Go to Class</p>
+        </button>
       </Link>
     </div>
   );
