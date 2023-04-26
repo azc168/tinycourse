@@ -40,13 +40,13 @@ export default function DepartmentPage() {
     } else if (sortValue === "low-high-rating") {
       departmentCourses.sort(function(a, b){return averageRatings[a.Number] - averageRatings[b.Number]});
     } else if (sortValue === "high-low-workload") {
-      //departmentCourses.sort(function(a, b){return averageRatings[b.Number]['2'] - averageRatings[a.Number]['2']});
+      departmentCourses.sort(function(a, b){return averageWorkload[b.Number] - averageWorkload[a.Number]});
     } else if (sortValue === "low-high-workload") {
-      //departmentCourses.sort(function(a, b){return averageRatings[a.Number]['2'] - averageRatings[b.Number]['2']});
+      departmentCourses.sort(function(a, b){return averageWorkload[a.Number] - averageWorkload[b.Number]});
     } else if (sortValue === "high-low-difficulty") {
-      //departmentCourses.sort(function(a, b){return averageRatings[b.Number]['1'] - averageRatings[a.Number]['1']});
+      departmentCourses.sort(function(a, b){return averageDiff[b.Number] - averageDiff[a.Number]});
     } else if (sortValue === "low-high-difficulty") {
-      //departmentCourses.sort(function(a, b){return averageRatings[a.Number]['1'] - averageRatings[b.Number]['1']});
+      departmentCourses.sort(function(a, b){return averageDiff[a.Number] - averageDiff[b.Number]});
     }
     forceUpdate();
 
@@ -62,6 +62,8 @@ export default function DepartmentPage() {
   const [avgWorkload, setAvgWorkload] = useState([]);
   const [courseNum, setCourseNum] = useState([]);
   const [averageRatings, setAverageRatings] = useState({});
+  const [averageWorkload, setAverageWorkload] = useState({});
+  const [averageDiff, setAverageDiff] = useState({});
 
 
   const getAverages = async (department, courseNum) => {
@@ -128,6 +130,22 @@ export default function DepartmentPage() {
     setAverageRatings(updatedAverageRatings);
   }, [avgRating, courseNum, department, departmentCourses]);
 
+  useEffect(() => { 
+    const updatedAverageWorkload = {};
+    for (var i = 0; i < courseNum.length; i++) {
+      updatedAverageWorkload[courseNum[i]] = avgWorkload[i];
+    }
+    setAverageWorkload(updatedAverageWorkload);
+  }, [avgWorkload, courseNum, department, departmentCourses]);
+
+  useEffect(() => { 
+    const updatedAverageDiff = {};
+    for (var i = 0; i < courseNum.length; i++) {
+      updatedAverageDiff[courseNum[i]] = avgDifficulty[i];
+    }
+    setAverageDiff(updatedAverageDiff);
+  }, [avgDifficulty, courseNum, department, departmentCourses]);
+
 
   return (
     <div className="page-body">
@@ -173,8 +191,8 @@ export default function DepartmentPage() {
               </div>
               <div className="class-name">{course.Name}</div>
               <div className="class-rating"> Rating: {Math.round(averageRatings[course.Number])} / 5</div>
-              <div className="class-workload"> Workload: {Math.round(avgWorkload[index])} / 5</div>
-              <div className="class-difficulty"> Difficulty: {Math.round(avgDifficulty[index])} / 5</div>
+              <div className="class-workload"> Workload: {Math.round(averageWorkload[course.Number])} / 5</div>
+              <div className="class-difficulty"> Difficulty: {Math.round(averageDiff[course.Number])} / 5</div>
               <div>
                 {Array.isArray(course.Tags) && course.Tags.length > 0 && (
                   <div>
