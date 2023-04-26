@@ -180,14 +180,17 @@ export default function Reviews(props) {
                 <h3>{review.title}</h3>
                 <h5>Posted by: {review.author.name}</h5>
                 <p className="rating-format">
-                  Overall Rating:&nbsp;&nbsp;{renderStarRating(review.rate)}
+                  Rating:&nbsp;&nbsp;{renderStarRating(review.rate)}
+                  {review.rate}/5
                 </p>
                 <p className="rating-format">
                   Workload:&nbsp;&nbsp;{renderWorkloadRating(review.workload)}
+                  {review.workload}/5
                 </p>
                 <p className="rating-format">
                   Difficulty:&nbsp;&nbsp;
                   {renderDifficultyRating(review.difficulty)}
+                  {review.difficulty}/5
                 </p>
                 <p>Professor: {review.instructor}</p>
                 <p>Semester: {review.semester}</p>

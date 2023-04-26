@@ -341,6 +341,7 @@ export default function DepartmentPage() {
                 <p className="rating">
                   Rating:&nbsp;&nbsp;
                   {renderStarRating(Math.round(averageRatings[course.Number]))}
+                  {Math.round(averageRatings[course.Number])}/5
                 </p>
               </div>
               <div className="class-workload">
@@ -349,6 +350,7 @@ export default function DepartmentPage() {
                   {renderWorkloadRating(
                     Math.round(averageWorkload[course.Number])
                   )}
+                  {Math.round(averageWorkload[course.Number])}/5
                 </p>
               </div>
               <div className="class-difficulty">
@@ -357,6 +359,7 @@ export default function DepartmentPage() {
                   {renderDifficultyRating(
                     Math.round(averageDiff[course.Number])
                   )}
+                  {Math.round(averageDiff[course.Number])}/5
                 </p>
               </div>
               <div>

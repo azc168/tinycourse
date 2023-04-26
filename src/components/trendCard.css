@@ -7,7 +7,7 @@ h4 {
   padding: 20px;
   border-radius: 10px;
   text-align: left;
-  width: 200px;
+  width: 202px;
   margin-bottom: 20px;
   height: 165px;
 }
@@ -47,4 +47,8 @@ p {
   display: flex;
   padding-right: 10px;
   margin-bottom: 15px;
+}
+
+.class-ratings {
+  margin-left: -9px;
 }
