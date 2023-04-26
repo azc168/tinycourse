@@ -114,6 +114,48 @@
     "Tags": "PH"
   },
   {
+    "Department": "Comp",
+    "Number": "421",
+    "Name": "Files and Databases",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "455",
+    "Name": "Models of Languages and Computation",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "523",
+    "Name": "Software Engineering Laboratory",
+    "Tags": "EE"
+  },
+  {
+    "Department": "Comp",
+    "Number": "550",
+    "Name": "Algorithms & Analysis",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "562",
+    "Name": "Introduction to Machine Learning",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "572",
+    "Name": "Computational Photography",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
+    "Number": "590",
+    "Name": "Special Topics:",
+    "Tags": "N/A"
+  },
+  {
     "Department": "Econ",
     "Number": "100",
     "Name": "Economic Principles",
