@@ -120,7 +120,7 @@ export default function DepartmentPage() {
           updatedAverageRatings[courseNum[i]] = avgRating[i];
           // averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
         }
-        setAverageRatings(updatedAverageRatings);
+        setAverageRatings(averageRatings);
       });
     }
     // eslint-disable-next-line

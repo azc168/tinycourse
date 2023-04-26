@@ -97,7 +97,47 @@
             "Number" : "380",
             "Name" : "Introduction to Digital Culture",
             "Tags": "PH"
-        }
+        },
+        {
+            "Number": "421",
+            "Name": "Files and Databases",
+            "Tags": "N/A"
+          },
+          {
+            "Number": "455",
+            "Name": "Models of Languages and Computation",
+            "Tags": "N/A"
+          },
+          {
+            "Number": "488",
+            "Name": "Data Science in the Business World",
+            "Tags": "N/A"
+          },
+          {
+            "Number": "523",
+            "Name": "Software Engineering Laboratory",
+            "Tags": "EE"
+          },
+          {
+            "Number": "550",
+            "Name": "Algorithms & Analysis",
+            "Tags": "N/A"
+          },
+          {
+            "Number": "562",
+            "Name": "Introduction to Machine Learning",
+            "Tags": "N/A"
+          },
+          {
+            "Number": "572",
+            "Name": "Computational Photography",
+            "Tags": "N/A"
+          },
+          {
+            "Number": "590",
+            "Name": "Special Topics:",
+            "Tags": "N/A"
+          }
     ],
     "Econ": [
         {
