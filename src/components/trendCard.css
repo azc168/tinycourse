@@ -29,18 +29,36 @@ p {
 }
 
 .department-name {
-  margin-top:5px;
+  margin-top: 5px;
 }
 
 .class-button {
-  margin-top: 7px;
+  /* margin-top: 7px;
   display: inline-block;
   padding: 2px 4px;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #333;
   background-color: #f5f5f5;
+  text-align: center; */
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+  background-color: #F5F5F5;
+  color: #333;
   text-align: center;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.button-text {
+  
+}
+.class-button p {
+  margin-left: -2px;
+  vertical-align:middle;
 }
 
 .class-button:hover {
