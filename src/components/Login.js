@@ -43,9 +43,12 @@ import './login.css';
                 <button className="login-with-google-btn" onClick={signInWithGoogle}>Sign in with Google</button> 
                 <p style={spacing}>to continue</p>
             </div>
+            <div className="message">
+                <p>You must be logged in to review classes!</p>
+            </div>
             <div className="descriptionCardA" style={cardStyle}>
                 <Card 
-                    imageUrl="https://thumbs.dreamstime.com/b/magnifying-glass-cartoon-illustration-isolated-white-magnifying-glass-black-117871094.jpg"
+                    imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpF15zcPP-jGaZYPPgcwwBss0JqaklS27Vqw&usqp=CAU"
                     body="Browse Popular Courses" />
                 <Card 
                     imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrLNphYDymieeHaZehas3iettQdmc2LOIAFQ&usqp=CAU" 
@@ -54,6 +57,7 @@ import './login.css';
                     imageUrl="https://i.postimg.cc/fLVgC5k1/paper-g98bb13122-640.png"
                     body="Write A Review" />
             </div>
+
             
         </div>
 

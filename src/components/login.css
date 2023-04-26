@@ -20,3 +20,9 @@
 .login-with-google-btn:hover {
     color: #5C8DA0;
 }
+
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
