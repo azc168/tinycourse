@@ -148,38 +148,45 @@ export default function DepartmentPage() {
 
 
   return (
-    <div className="page-body">
-      <div className="sort-bar">
-        <label>
-            {" "}
-            Sort: {" "}
-        </label>
-        <select className="sorting" name="sortOptions" onChange={(event) => {setSortValue(event.target.value)}} value={sortValue} id="high-low">
-          <option value="low-high-course-num">Low-high course number</option>
-          <option value="high-low-course-num">High-low course number</option>
-          <option value="high-low-rating">High-low rating</option>
-          <option value="low-high-rating">Low-high rating</option>
-          <option value="high-low-workload">High-low workload</option>
-          <option value="low-high-workload">Low-high workload</option>
-          <option value="high-low-difficulty">High-low difficulty</option>
-          <option value="low-high-difficulty">Low-high difficulty</option>
-        </select>
-        <label id="genId">
-            {" "}
-            Filter by Gen Ed: {" "}
-        </label>
-        <select className="gened" name="genedOptions" onChange={(event) => {setGenValue(event.target.value)}} value={genValue} id="gen-ed">
-          <option value="Any">Any</option>
-          <option value="CI">CI</option>
-          <option value="EE">EE</option>
-          <option value="PL">PL</option>
-          <option value="PX">PX</option>
-          <option value="QR">QR</option>
-        </select>
-        <button className="filter-search">
-          Apply Settings
-        </button>
-      </div>
+    <div className="page-body">  
+      <div className="backBtnContainer">
+        <div className="backButton">
+          <Link to={`/`}>
+              <u id="backToCourses">Back to Course Catalog</u>
+          </Link>
+        </div>
+      </div> 
+        {departmentCourses.length > 0 ? (
+          <div className="sort-bar">
+            <label>
+              {" "}
+              Sort: {" "}
+            </label><select className="sorting" name="sortOptions" onChange={(event) => { setSortValue(event.target.value); } } value={sortValue} id="high-low">
+                <option value="low-high-course-num">Low-high course number</option>
+                <option value="high-low-course-num">High-low course number</option>
+                <option value="high-low-rating">High-low rating</option>
+                <option value="low-high-rating">Low-high rating</option>
+                <option value="high-low-workload">High-low workload</option>
+                <option value="low-high-workload">Low-high workload</option>
+                <option value="high-low-difficulty">High-low difficulty</option>
+                <option value="low-high-difficulty">Low-high difficulty</option>
+              </select><label id="genId">
+                {" "}
+                Filter by Gen Ed: {" "}
+              </label><select className="gened" name="genedOptions" onChange={(event) => { setGenValue(event.target.value); } } value={genValue} id="gen-ed">
+                <option value="Any">Any</option>
+                <option value="CI">CI</option>
+                <option value="EE">EE</option>
+                <option value="PL">PL</option>
+                <option value="PX">PX</option>
+                <option value="QR">QR</option>
+              </select><button className="filter-search">
+                Apply Settings
+              </button>
+          </div>
+        // eslint-disable-next-line jsx-a11y/heading-has-content
+        ) : ( <h1></h1>
+        )}
       <div className="class-card-container">
         {departmentCourses.length > 0 ? (
           departmentCourses.map((course, index) => (
