@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CatalogCard from "./CatalogCard";
 import Searchbar from "./Searchbar";
 import "./homepage.css";
-import { aArray, fourtwenny } from "./DataArrays";
+import { aArray } from "./DataArrays";
 import { bArray } from "./DataArrays";
 import { cArray } from "./DataArrays";
 import { dArray } from "./DataArrays";
@@ -12,7 +12,6 @@ import { gArray } from "./DataArrays";
 import { hArray } from "./DataArrays";
 import { iArray } from "./DataArrays";
 import { jArray } from "./DataArrays";
-import {oneten, fiveninety} from "./DataArrays";
 import TrendCard from "./TrendCard";
 import classData from "./catalogData.json";
 
@@ -86,10 +85,9 @@ export default function Homepage() {
   ];
 
   const trendCards = [
-    <TrendCard title="Comp 110 | Intro to Computer Science" descs={oneten} />,
-    <TrendCard title="Comp 590 | Design and Implementation of User Interfaces
-    " descs={fiveninety} />,
-    <TrendCard title="Comp 426 | Modern Web Programming" descs={fourtwenny} />,
+    <TrendCard dep="COMP" num="110" department="Computer Science" />,
+    <TrendCard dep="COMP" num= "590" department="Computer Science" />,
+    <TrendCard dep="BIOL" num="101" department="Biology" />,
   ]
 
   const topCatalogCards = catalogCards.slice(0, 5);

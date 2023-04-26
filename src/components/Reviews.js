@@ -127,9 +127,9 @@ export default function Reviews(props) {
                 </button>
                 <h3>{review.title}</h3>
                 <h5>Posted by: {review.author.name}</h5>
-                <p>Overall Rating: {renderStarRating(review.rate)}</p>
-                <p>Workload: {renderWorkloadRating(review.workload)}</p>
-                <p>Difficulty: {renderDifficultyRating(review.difficulty)}</p>
+                <p className="rating-format">Overall Rating:&nbsp;&nbsp;{renderStarRating(review.rate)}</p>
+                <p className="rating-format">Workload:&nbsp;&nbsp;{renderWorkloadRating(review.workload)}</p>
+                <p className="rating-format">Difficulty:&nbsp;&nbsp;{renderDifficultyRating(review.difficulty)}</p>
                 <p>Professor: {review.instructor}</p>
                 <p>Semester: {review.semester}</p>
               </div>
