@@ -3,11 +3,11 @@ p {
 }
 .reviews {
   display: flex;
-    flex-wrap: wrap;
-    margin: 1rem 4rem;
-    padding: 1.5rem;
-    border: 2px solid #7BAFD4;
-    /* justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 1rem 4rem;
+  padding: 1.5rem;
+  border: 2px solid #7bafd4;
+  /* justify-content: space-between;
     margin-bottom: 20px; */
 }
 
@@ -46,15 +46,12 @@ p {
   width: 100%;
   margin-top: 100px;
   margin: 2rem;
-  padding: 1.5rem;
-  border: 2px solid #7BAFD4;
-
 }
 
 .reviewButton {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #7BAFD4;
+  background-color: #7bafd4;
   color: white;
   border: none;
   border-radius: 5px;
@@ -62,7 +59,7 @@ p {
 }
 
 .reviewButton:hover {
-  background-color: #5C8DA0;
+  background-color: #5c8da0;
 }
 .noReviews h3 {
   margin-bottom: 20px;
@@ -118,18 +115,17 @@ h5 {
 }
 
 .checkedStar {
-  color: #F9F871;
+  color: #f9f871;
   margin-right: 5px;
 }
 
 .uncheckedStar {
   margin-right: 5px;
   color: #333;
-
 }
 
 .checkedBook {
-  color: #ADF691;
+  color: #adf691;
   margin-right: 7px;
 }
 
@@ -139,7 +135,7 @@ h5 {
 }
 
 .checkedSquare {
-  color: #69EBB8;
+  color: #69ebb8;
   margin-right: 7px;
 }
 
