@@ -4,6 +4,7 @@ import CreatePost from "./components/CreatePost";
 import Login from "./components/Login";
 import DepartmentPage from "./components/DepartmentPage";
 import ClassPage from "./components/ClassPage";
+import {auth} from './firebase-config';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,7 +14,6 @@ import {
 } from "react-router-dom";
 import React, { useState } from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "./firebase-config";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -55,6 +55,7 @@ function App() {
     width: "70px",
     height: "80px",
   };
+
 
   const signUserOut = () => {
     signOut(auth).then(() => {
