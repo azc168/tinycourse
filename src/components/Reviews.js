@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag, faStar, faStarHalfAlt, faBook, faSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFlag,
+  faStar,
+  faStarHalfAlt,
+  faBook,
+  faSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
 
 function handleFlag(id) {
@@ -15,19 +21,37 @@ function handleFlag(id) {
 function renderStarRating(rate) {
   const fullStars = Math.floor(rate);
   const hasHalfStar = rate - fullStars >= 0.5;
-  
+
   return (
     <div className="starRating">
       {[...Array(5)].map((_, index) => {
         if (index < fullStars) {
           // Render a shaded star
-          return <FontAwesomeIcon key={index} icon={faStar} className="checkedStar" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faStar}
+              className="checkedStar"
+            />
+          );
         } else if (index === fullStars && hasHalfStar) {
           // Render a half shaded star
-          return <FontAwesomeIcon key={index} icon={faStarHalfAlt} className="checkedStar" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faStarHalfAlt}
+              className="checkedStar"
+            />
+          );
         } else {
           // Render an empty star
-          return <FontAwesomeIcon key={index} icon={faStar} className="uncheckedStar" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faStar}
+              className="uncheckedStar"
+            />
+          );
         }
       })}
     </div>
@@ -37,43 +61,71 @@ function renderStarRating(rate) {
 function renderWorkloadRating(workload) {
   const fullStars = Math.floor(workload);
   const hasHalfStar = workload - fullStars >= 0.5;
-  
+
   return (
     <div className="workloadRating">
       {[...Array(5)].map((_, index) => {
         if (index < fullStars) {
           // Render a shaded star
-          return <FontAwesomeIcon key={index} icon={faBook} className="checkedBook" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faBook}
+              className="checkedBook"
+            />
+          );
         } else if (index === fullStars && hasHalfStar) {
           // Render a half shaded star
-          return <FontAwesomeIcon key={index} icon={faBook} className="checkedBook" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faBook}
+              className="checkedBook"
+            />
+          );
         } else {
           // Render an empty star
-          return <FontAwesomeIcon key={index} icon={faBook} className="uncheckedBook" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faBook}
+              className="uncheckedBook"
+            />
+          );
         }
       })}
     </div>
   );
-  
 }
 
 function renderDifficultyRating(difficulty) {
   const fullStars = Math.floor(difficulty);
-  
+
   return (
     <div className="difficultyRating">
       {[...Array(5)].map((_, index) => {
         if (index < fullStars) {
           // Render a shaded star
-          return <FontAwesomeIcon key={index} icon={faSquare} className="checkedSquare" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faSquare}
+              className="checkedSquare"
+            />
+          );
         } else {
           // Render an empty star
-          return <FontAwesomeIcon key={index} icon={faSquare} className="uncheckedSquare" />;
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faSquare}
+              className="uncheckedSquare"
+            />
+          );
         }
       })}
     </div>
   );
-  
 }
 
 export default function Reviews(props) {
@@ -127,9 +179,16 @@ export default function Reviews(props) {
                 </button>
                 <h3>{review.title}</h3>
                 <h5>Posted by: {review.author.name}</h5>
-                <p className="rating-format">Overall Rating:&nbsp;&nbsp;{renderStarRating(review.rate)}</p>
-                <p className="rating-format">Workload:&nbsp;&nbsp;{renderWorkloadRating(review.workload)}</p>
-                <p className="rating-format">Difficulty:&nbsp;&nbsp;{renderDifficultyRating(review.difficulty)}</p>
+                <p className="rating-format">
+                  Overall Rating:&nbsp;&nbsp;{renderStarRating(review.rate)}
+                </p>
+                <p className="rating-format">
+                  Workload:&nbsp;&nbsp;{renderWorkloadRating(review.workload)}
+                </p>
+                <p className="rating-format">
+                  Difficulty:&nbsp;&nbsp;
+                  {renderDifficultyRating(review.difficulty)}
+                </p>
                 <p>Professor: {review.instructor}</p>
                 <p>Semester: {review.semester}</p>
               </div>
@@ -144,7 +203,9 @@ export default function Reviews(props) {
       })}
       {noReviewsFound && (
         <div className="noReviews">
-          <h3>Unfortunately, {courseDep} {courseNum} has no reviews yet.</h3>
+          <h3>
+            Unfortunately, {courseDep} {courseNum} has no reviews yet.
+          </h3>
           <Link to="/createpost" className="reviewButton">
             Be the first to review!
           </Link>

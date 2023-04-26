@@ -24,3 +24,14 @@
     margin-bottom: 5px;
   }
   
+  .department-list {
+    max-height: 135px;
+    overflow-y: scroll;
+    scrollbar-width: 1px; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+  
+  .department-list::-webkit-scrollbar {
+    display: none; 
+  }
+  

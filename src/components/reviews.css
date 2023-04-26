@@ -2,13 +2,13 @@ p {
   font-size: 14px;
 }
 .reviews {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 1rem 4rem;
-  padding: 1.5rem;
-  border: 2px solid #7bafd4;
-  /* justify-content: space-between;
-    margin-bottom: 20px; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border: 2px solid #7bafd4;
+    width: 1000px;
+    margin: auto;
+    margin-bottom: 3rem;
 }
 
 .review {
@@ -16,8 +16,9 @@ p {
   color: #000000;
   padding: 10px;
   margin: 10px;
-  width: 300px;
+  width: 293px;
   border-radius: 10px;
+  /* max-height: 300px; */
 }
 
 .reviewHeader {
