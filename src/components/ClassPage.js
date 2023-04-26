@@ -8,7 +8,7 @@ export default function ClassPage() {
 
   return (
     <div className="class-container">
-      <h2 className="heading">{department} {courseNum}</h2>
+      <h2 className="heading">{department} {courseNum} Reviews</h2>
       <Reviews courseDep={department} courseNum={courseNum} />
     </div>
   );

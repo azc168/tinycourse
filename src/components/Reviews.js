@@ -136,7 +136,7 @@ export default function Reviews(props) {
             </div>
             <hr></hr>
             <div className="reviewText">
-              <h4>Description:</h4>
+              <h4>Review:</h4>
               <p>{review.description}</p>
             </div>
           </div>

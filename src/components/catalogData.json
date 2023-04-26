@@ -127,6 +127,12 @@
   },
   {
     "Department": "Comp",
+    "Number": "488",
+    "Name": "Data Science in the Business World",
+    "Tags": "N/A"
+  },
+  {
+    "Department": "Comp",
     "Number": "523",
     "Name": "Software Engineering Laboratory",
     "Tags": "EE"
