@@ -28,7 +28,6 @@ export default function DepartmentPage() {
     default:
       break;
   };
-
   
   useEffect(() => {
 
@@ -114,31 +113,21 @@ export default function DepartmentPage() {
             return avg[3];
           })
         );
-        const updatedAverageRatings = {};
-        // need to move setAverageRatings inside this promise
-        for (var i = 0; i < courseNum.length; i++) {
-          updatedAverageRatings[courseNum[i]] = avgRating[i];
-          // averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
-        }
-        setAverageRatings(updatedAverageRatings);
       });
     }
-    // eslint-disable-next-line
-  }, [department]);
 
-  /*useEffect(() => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [department, departmentCourses]);
 
-      for (var i = 0; i < courseNum.length; i++) {
-        averageRatings[courseNum[i]] = avgRating[i];
-        setAverageRatings(averageRatings);
-        // averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
-      }
-    
-  }, [averageRatings, avgRating, courseNum, departmentCourses]); */
 
-  
+  useEffect(() => { 
+    const updatedAverageRatings = {};
+    for (var i = 0; i < courseNum.length; i++) {
+      updatedAverageRatings[courseNum[i]] = avgRating[i];
+    }
+    setAverageRatings(updatedAverageRatings);
+  }, [avgRating, courseNum, department, departmentCourses]);
 
-  const filterSearch = () => {};
 
   return (
     <div className="page-body">
@@ -169,7 +158,7 @@ export default function DepartmentPage() {
           <option value="PX">PX</option>
           <option value="QR">QR</option>
         </select>
-        <button className="filter-search" onClick={filterSearch}>
+        <button className="filter-search">
           Apply Settings
         </button>
       </div>
