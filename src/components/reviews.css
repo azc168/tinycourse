@@ -4,7 +4,7 @@ p {
 .reviews {
   display: flex;
     flex-wrap: wrap;
-    margin: 4rem;
+    margin: 1rem 4rem;
     padding: 1.5rem;
     border: 2px solid #7BAFD4;
     /* justify-content: space-between;
@@ -16,7 +16,7 @@ p {
   color: #000000;
   padding: 10px;
   margin: 10px;
-  width: 45%;
+  width: 300px;
   border-radius: 10px;
 }
 
@@ -33,7 +33,7 @@ p {
 
 .title h3 {
   margin: 0;
-  color: black;
+  color: white;
 }
 
 .title p {
@@ -84,6 +84,7 @@ h4 {
 h5 {
   color: #333333; /* set the author text to gray */
   margin: 5px 0px;
+  font-size: 14px;
 }
 
 .reviewText {
@@ -117,28 +118,36 @@ h5 {
 }
 
 .checkedStar {
-  color: #ffc107;
+  color: #F9F871;
   margin-right: 5px;
 }
 
 .uncheckedStar {
   margin-right: 5px;
+  color: #333;
+
 }
 
 .checkedBook {
-  color: purple;
+  color: #ADF691;
   margin-right: 7px;
 }
 
 .uncheckedBook {
   margin-right: 7px;
+  color: #333;
 }
 
 .checkedSquare {
-  color: brown;
+  color: #69EBB8;
   margin-right: 7px;
 }
 
 .uncheckedSquare {
   margin-right: 7px;
+  color: #333;
+}
+
+.rating-format {
+  display: flex;
 }

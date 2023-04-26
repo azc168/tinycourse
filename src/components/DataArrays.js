@@ -61,13 +61,6 @@ export const courseArrays = {
 
 
 
-export const oneten = "The nature of computers, their capabilities, and limitations. How computers work, popular applications, and problem-solving skills.";
-
-export const fiveninety = "Good user interface design, covering important design principles and the human capabilities that motivate them.";
-
-export const fourtwenny = "Developing applications for the World Wide Web including both client-side and server-side programming."
-
-
 export default function DataArrays() {
   return null;
 }

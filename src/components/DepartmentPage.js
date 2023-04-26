@@ -114,16 +114,17 @@ export default function DepartmentPage() {
             return avg[3];
           })
         );
+        const updatedAverageRatings = {};
         // need to move setAverageRatings inside this promise
         for (var i = 0; i < courseNum.length; i++) {
-          averageRatings[courseNum[i]] = avgRating[i];
-          setAverageRatings(averageRatings);
+          updatedAverageRatings[courseNum[i]] = avgRating[i];
           // averageRatings[courseNum[i]] = [avgRating[i], avgDifficulty[i], avgWorkload[i]];
         }
+        setAverageRatings(updatedAverageRatings);
       });
     }
-    
-  }, [averageRatings, avgRating, courseNum, department, departmentCourses]);
+    // eslint-disable-next-line
+  }, [department]);
 
   /*useEffect(() => {
 
@@ -146,7 +147,7 @@ export default function DepartmentPage() {
             {" "}
             Sort: {" "}
         </label>
-        <select name="sortOptions" onChange={(event) => {setSortValue(event.target.value)}} value={sortValue} id="high-low">
+        <select className="sorting" name="sortOptions" onChange={(event) => {setSortValue(event.target.value)}} value={sortValue} id="high-low">
           <option value="low-high-course-num">Low-high course number</option>
           <option value="high-low-course-num">High-low course number</option>
           <option value="high-low-rating">High-low rating</option>
@@ -160,7 +161,7 @@ export default function DepartmentPage() {
             {" "}
             Filter by Gen Ed: {" "}
         </label>
-        <select name="genedOptions" onChange={(event) => {setGenValue(event.target.value)}} value={genValue} id="gen-ed">
+        <select className="gened" name="genedOptions" onChange={(event) => {setGenValue(event.target.value)}} value={genValue} id="gen-ed">
           <option value="Any">Any</option>
           <option value="CI">CI</option>
           <option value="EE">EE</option>
@@ -169,7 +170,7 @@ export default function DepartmentPage() {
           <option value="QR">QR</option>
         </select>
         <button className="filter-search" onClick={filterSearch}>
-          Find me classes!
+          Apply Settings
         </button>
       </div>
       <div className="class-card-container">
