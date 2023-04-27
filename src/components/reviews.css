@@ -148,3 +148,9 @@ h5 {
 .rating-format {
   display: flex;
 }
+
+.backBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
