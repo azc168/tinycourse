@@ -14,6 +14,7 @@ import {
 
 export default function DepartmentPage() {
   const [sortValue, setSortValue] = useState("low-high-course-num");
+  // eslint-disable-next-line no-unused-vars
   const [genValue, setGenValue] = useState("Any");
   const { department } = useParams();
   const [, updateState] = React.useState();
