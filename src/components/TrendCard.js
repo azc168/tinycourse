@@ -13,6 +13,38 @@ import {
 
 export default function TrendCard({ dep, num, department }) {
   const [courseData, setCourseData] = useState(null);
+  // const [averageRating, setAverageRating] = useState(0);
+  // const [averageDifficulty, setAverageDifficulty] = useState(0);
+  // const [averageWorkload, setAverageWorkload] = useState(0);
+
+  // useEffect(() => {
+  //   async function getAverages() {
+  //     const courseRef = collection(db, "reviews");
+  //     const courseQuery = query(
+  //       courseRef,
+  //       where("department", "==", dep),
+  //       where("course", "==", num)
+  //     );
+  //     const courseSnapshot = await getDocs(courseQuery);
+  //     let totalRating = 0;
+  //     let totalDifficulty = 0;
+  //     let totalWorkload = 0;
+  //     courseSnapshot.forEach((doc) => {
+  //       totalRating += Number(doc.data().rate);
+  //       totalDifficulty += Number(doc.data().difficulty);
+  //       totalWorkload += Number(doc.data().workload);
+  //     });
+  //     const numDocs = courseSnapshot.size;
+  //     const rating = numDocs > 0 ? totalRating / numDocs : null;
+  //     const difficulty = numDocs > 0 ? totalDifficulty / numDocs : null;
+  //     const workload = numDocs > 0 ? totalWorkload / numDocs : null;
+  //     setAverageRating(rating);
+  //     setAverageDifficulty(difficulty);
+  //     setAverageWorkload(workload);
+  //   }
+
+  //   getAverages();
+  // }, [dep, num]);
 
   useEffect(() => {
     async function fetchCourseData() {
