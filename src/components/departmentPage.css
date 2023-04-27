@@ -33,13 +33,13 @@
 
 .sort-bar {
   display: flex;
-  border: 2px solid #7bafd4;
-  width: 340px;
+  /* border: 2px solid #7bafd4; */
+  width: 966px;
   height: 50px;
   margin: auto;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: right;
+  margin-bottom: 1px;
 }
 
 #high-low,
