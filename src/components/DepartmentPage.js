@@ -297,6 +297,7 @@ export default function DepartmentPage() {
             <option value="high-low-difficulty">High-low difficulty</option>
             <option value="low-high-difficulty">Low-high difficulty</option>
           </select>
+          {/*
           <label id="genId"> Filter by Gen Ed: </label>
           <select
             className="gened"
@@ -314,6 +315,7 @@ export default function DepartmentPage() {
             <option value="PX">PX</option>
             <option value="QR">QR</option>
           </select>
+          */}
         </div>
       ) : (
         // eslint-disable-next-line jsx-a11y/heading-has-content
