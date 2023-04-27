@@ -165,55 +165,62 @@ export default function Reviews(props) {
   }, [courseDep, courseNum]);
 
   return (
-    <div className="reviews">
-      {reviewLists.map((review) => {
-        return (
-          <div className="review" key={review.id}>
-            <div className="reviewHeader">
-              <div className="title">
-                <button
-                  className="flagLink"
-                  onClick={() => handleFlag(review.id)}
-                >
-                  <FontAwesomeIcon icon={faFlag} className="outlineFlag" />
-                </button>
-                <h3>{review.title}</h3>
-                <h5>Posted by: {review.author.name}</h5>
-                <p className="rating-format">
-                  Rating:&nbsp;&nbsp;{renderStarRating(review.rate)}
-                  {review.rate}/5
-                </p>
-                <p className="rating-format">
-                  Workload:&nbsp;&nbsp;{renderWorkloadRating(review.workload)}
-                  {review.workload}/5
-                </p>
-                <p className="rating-format">
-                  Difficulty:&nbsp;&nbsp;
-                  {renderDifficultyRating(review.difficulty)}
-                  {review.difficulty}/5
-                </p>
-                <p>Professor: {review.instructor}</p>
-                <p>Semester: {review.semester}</p>
+    <div>
+      <div className="reviews">
+        {reviewLists.map((review) => {
+          return (
+            <div className="review" key={review.id}>
+              <div className="reviewHeader">
+                <div className="title">
+                  <button
+                    className="flagLink"
+                    onClick={() => handleFlag(review.id)}
+                  >
+                    <FontAwesomeIcon icon={faFlag} className="outlineFlag" />
+                  </button>
+                  <h3>{review.title}</h3>
+                  <h5>Posted by: {review.author.name}</h5>
+                  <p className="rating-format">
+                    Rating:&nbsp;&nbsp;{renderStarRating(review.rate)}
+                    {review.rate}/5
+                  </p>
+                  <p className="rating-format">
+                    Workload:&nbsp;&nbsp;{renderWorkloadRating(review.workload)}
+                    {review.workload}/5
+                  </p>
+                  <p className="rating-format">
+                    Difficulty:&nbsp;&nbsp;
+                    {renderDifficultyRating(review.difficulty)}
+                    {review.difficulty}/5
+                  </p>
+                  <p>Professor: {review.instructor}</p>
+                  <p>Semester: {review.semester}</p>
+                </div>
+              </div>
+              <hr></hr>
+              <div className="reviewText">
+                <h4>Review:</h4>
+                <p>{review.description}</p>
               </div>
             </div>
-            <hr></hr>
-            <div className="reviewText">
-              <h4>Review:</h4>
-              <p>{review.description}</p>
-            </div>
+          );
+        })}
+        {noReviewsFound && (
+          <div className="noReviews">
+            <h3>
+              Unfortunately, {courseDep} {courseNum} has no reviews yet.
+            </h3>
+            <Link to="/createpost" className="reviewButton">
+              Be the first to review!
+            </Link>
           </div>
-        );
-      })}
-      {noReviewsFound && (
-        <div className="noReviews">
-          <h3>
-            Unfortunately, {courseDep} {courseNum} has no reviews yet.
-          </h3>
-          <Link to="/createpost" className="reviewButton">
-            Be the first to review!
-          </Link>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+      <div className = "backBtn">
+        <Link to={`/department/${courseDep}`}>
+          <u id="backToCourses">Back to All {courseDep} Courses</u>
+        </Link>
+      </div>
+    </div> 
   );
 }

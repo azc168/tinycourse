@@ -14,6 +14,7 @@ import {
 
 export default function DepartmentPage() {
   const [sortValue, setSortValue] = useState("low-high-course-num");
+  // eslint-disable-next-line no-unused-vars
   const [genValue, setGenValue] = useState("Any");
   const { department } = useParams();
   const [, updateState] = React.useState();
@@ -297,6 +298,7 @@ export default function DepartmentPage() {
             <option value="high-low-difficulty">High-low difficulty</option>
             <option value="low-high-difficulty">Low-high difficulty</option>
           </select>
+          {/*
           <label id="genId"> Filter by Gen Ed: </label>
           <select
             className="gened"
@@ -314,7 +316,7 @@ export default function DepartmentPage() {
             <option value="PX">PX</option>
             <option value="QR">QR</option>
           </select>
-          <button className="filter-search">Apply Settings</button>
+          */}
         </div>
       ) : (
         // eslint-disable-next-line jsx-a11y/heading-has-content
