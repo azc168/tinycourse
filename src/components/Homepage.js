@@ -122,7 +122,7 @@ export default function Homepage() {
             </span>
             :{" "}
           </label>
-          <Searchbar placeholder={"e.g. COMP110, WB, ECON"} data={classData} />
+          <Searchbar placeholder={"e.g. COMP110, PH, ECON"} data={classData} />
         </div>
         <div className="trendingClasses" style={styles.trendingClasses}>
           <p>
