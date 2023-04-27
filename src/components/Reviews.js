@@ -216,11 +216,6 @@ export default function Reviews(props) {
           </div>
         )}
       </div>
-      <div className = "backBtn">
-        <Link to={`/department/${courseDep}`}>
-          <u id="backToCourses">Back to All {courseDep} Courses</u>
-        </Link>
-      </div>
     </div> 
   );
 }
