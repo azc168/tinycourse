@@ -314,7 +314,6 @@ export default function DepartmentPage() {
             <option value="PX">PX</option>
             <option value="QR">QR</option>
           </select>
-          <button className="filter-search">Apply Settings</button>
         </div>
       ) : (
         // eslint-disable-next-line jsx-a11y/heading-has-content
