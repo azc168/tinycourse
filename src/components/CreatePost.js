@@ -285,11 +285,11 @@ export default function CreatePost({isAuth }) {
         </select>
       </div>
       <div className="submitOrSave">
-        <button id="submit" onClick={createPost}>
-          Publish
-        </button>
         <button id="save" onClick={backHome}>
           Go Back
+        </button>
+        <button id="submit" onClick={createPost}>
+          Publish
         </button>
       </div>
     </div>
