@@ -153,4 +153,10 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 200px;
+  height: 36px;
+}
+
+.backBtn:hover {
+  color: #7BAFD4;
 }
