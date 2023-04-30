@@ -17,7 +17,7 @@ export default function CreatePost({isAuth }) {
   const [rhover, setRHover] = useState(null);
   const [whover, setWHover] = useState(null);
   const [workload, setWorkload] = useState("");
-  const [difficulty, setDifficulty] = useState("");
+  const [difficulty, setDifficulty] = useState("5");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("yes");
 
